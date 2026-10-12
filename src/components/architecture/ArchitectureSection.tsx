@@ -180,7 +180,7 @@ export function ArchitectureSection() {
   };
 
   return (
-    <section id="architecture" className="py-24 lg:py-32 bg-bg-primary relative overflow-hidden">
+    <section id="architecture" className="py-16 lg:py-20 bg-bg-primary relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--accent-dim)_0%,_transparent_50%)] pointer-events-none" />
       
       <div className="section-container relative z-10">

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Cpu, Eye, Bot, Monitor } from "lucide-react";
+import { Cpu, Eye, Bot, Monitor, type LucideIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, Badge } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +11,7 @@ interface PlatformCardProps {
   name: string;
   tagline: string;
   metrics: string[];
-  icon: React.ComponentType<{ className?: string }>;
+  icon: LucideIcon;
   accentColor: string;
   href: string;
   features: string[];
@@ -208,7 +208,7 @@ const PLATFORMS = [
 
 export function PlatformsSection() {
   return (
-    <section id="systems" className="py-24 lg:py-32 bg-bg-secondary relative overflow-hidden">
+    <section id="systems" className="py-16 lg:py-20 bg-bg-secondary relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[400px]

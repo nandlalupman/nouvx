@@ -69,7 +69,7 @@ export function OperationsSection() {
   const graphData = GRAPH_DATA[activeTab as keyof typeof GRAPH_DATA];
 
   return (
-    <section id="operations" className="py-24 lg:py-32 bg-bg-secondary relative overflow-hidden">
+    <section id="operations" className="py-16 lg:py-20 bg-bg-secondary relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--infra-dim)_0%,_transparent_50%)] pointer-events-none" />
       
       <div className="section-container relative z-10">

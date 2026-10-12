@@ -3,6 +3,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { GitFork, Link, Mail, Cpu, Shield, Zap, Network } from "lucide-react";
+import { NuovxLogo } from "@/components/ui";
 
 const FOOTER_LINKS = {
   systems: [
@@ -52,18 +53,13 @@ export function Footer() {
             className="lg:pr-10"
           >
             {/* Logo */}
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#e2b17a] via-[#d4a373] to-[#b87333] flex items-center justify-center shadow-[0_0_20px_rgba(212,163,115,0.35)]">
-                <Cpu className="w-5 h-5 text-[#0a0807]" />
-              </div>
-              <span className="font-display font-bold text-xl tracking-tight text-text-primary">
-                NOUVX
-              </span>
+            <div className="mb-5">
+              <NuovxLogo variant="dark" size="md" showTagline={true} />
             </div>
 
-            <p className="text-text-secondary text-sm leading-relaxed mb-7 max-w-xs">
-              Engineering intelligent systems for modern infrastructure.
-              Advanced AI, robotics, computer vision, and operational technology.
+            <p className="text-text-secondary text-sm leading-relaxed mb-6 max-w-xs font-normal">
+              A brighter tomorrow with skills. Engineering intelligent AI infrastructure, 
+              robotics platforms, and operational systems for next-generation builders.
             </p>
 
             {/* Social links */}

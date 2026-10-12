@@ -1,4 +1,4 @@
-import { Hero } from "@/components/hero";
+import { Hero, NvidiaFeatures } from "@/components/hero";
 import { PlatformsSection } from "@/components/platforms/PlatformsSection";
 import { CapabilitiesSection } from "@/components/capabilities/CapabilitiesSection";
 import { ArchitectureSection } from "@/components/architecture/ArchitectureSection";
@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-bg-primary">
       <Hero />
+      <NvidiaFeatures />
       <PlatformsSection />
       <CapabilitiesSection />
       <ArchitectureSection />

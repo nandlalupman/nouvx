@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Zap, Eye, Bot, Server, Cpu, Network, Database, Globe, Layers } from "lucide-react";
+import { Zap, Eye, Bot, Server, Cpu, Network, Database, Globe, Layers, type LucideIcon } from "lucide-react";
 import { Card, CardContent, Badge } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -10,7 +10,7 @@ interface CapabilityCardProps {
   id: string;
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: LucideIcon;
   color: string;
   tags: string[];
   index: number;

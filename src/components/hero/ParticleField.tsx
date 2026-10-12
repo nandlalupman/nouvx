@@ -91,7 +91,7 @@ export function ParticleField({
       opacity: 1,
       vertexColors: false,
       sizeAttenuation: true,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending,
       depthWrite: false,
     });
 

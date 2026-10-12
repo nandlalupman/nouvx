@@ -3,8 +3,9 @@
 import * as React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ChevronDown, Zap, Shield, Cpu, Network, Activity, Sparkles } from "lucide-react";
-import { Button, Badge } from "@/components/ui";
+import { Button, Badge, NuovxLogo } from "@/components/ui";
 import { ParticleField, SystemMap, VariableFontDisplay, MetricCounter, GlitchText } from "./ParticleField";
+import { cn } from "@/lib/utils";
 
 const STATS = [
   { label: "Reliability", value: 99.98, suffix: "%", color: "var(--success)",        icon: Shield,   delay: 0   },
@@ -33,7 +34,6 @@ function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
@@ -42,23 +42,15 @@ function Navbar() {
       className={[
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-[#0c0908]/90 backdrop-blur-2xl border-b border-[#33261e] shadow-[0_4px_30px_rgba(0,0,0,0.85)]"
-          : "bg-transparent",
+          ? "bg-[#ffffff]/90 backdrop-blur-2xl border-b border-[#e2d5c5] shadow-[0_4px_30px_rgba(40,25,15,0.06)]"
+          : "bg-white/80 backdrop-blur-md border-b border-[#ece2d6]/70",
       ].join(" ")}
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#e2b17a] via-[#d4a373] to-[#b87333] flex items-center justify-center shadow-[0_0_20px_rgba(212,163,115,0.4)]">
-                <Cpu className="w-5 h-5 text-[#0a0807]" />
-              </div>
-              <div className="absolute inset-0 rounded-xl bg-[#d4a373] opacity-0 group-hover:opacity-40 blur-lg transition-opacity duration-300" />
-            </div>
-            <span className="font-display font-bold text-xl tracking-tight text-text-primary">
-              NOUVX
-            </span>
+          <a href="/" className="flex items-center group py-1">
+            <NuovxLogo variant="light" size="sm" showTagline={true} />
           </a>
 
           {/* Nav Links */}
@@ -73,7 +65,7 @@ function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="nav-link text-text-muted hover:text-text-primary transition-colors"
+                className="nav-link text-[#524337] hover:text-[#140f0c] transition-colors font-medium text-sm"
               >
                 {link.label}
               </a>
@@ -82,13 +74,13 @@ function Navbar() {
 
           {/* CTA */}
           <div className="flex items-center gap-2.5">
-            <Button variant="ghost" size="sm" className="hidden lg:flex text-text-muted">
+            <Button variant="ghost" size="sm" className="hidden lg:flex text-[#524337] hover:text-[#140f0c] hover:bg-[#f6efe6]">
               Sign In
             </Button>
-            <Button size="sm" asChild>
+            <Button size="sm" className="bg-gradient-to-r from-[#0072ff] to-[#00f5a0] text-[#ffffff] font-bold shadow-[0_2px_14px_rgba(0,114,255,0.25)] hover:shadow-[0_4px_20px_rgba(0,114,255,0.35)]" asChild>
               <a href="/contact">
-                Contact
-                <ArrowRight className="w-3.5 h-3.5" />
+                Get Started
+                <ArrowRight className="w-3.5 h-3.5 ml-1" />
               </a>
             </Button>
           </div>
@@ -106,162 +98,184 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-primary pt-16"
+      className="relative min-h-screen lg:h-screen lg:max-h-[960px] flex flex-col justify-between overflow-hidden bg-[#ffffff] pt-16 border-b border-[#e8ded0]"
       aria-labelledby="hero-title"
     >
-      {/* Particle field */}
+      {/* Particle field with subtle warm bronze */}
       <ParticleField
-        particleCount={1000}
-        color="#d4a373"
+        particleCount={700}
+        color="#00c853"
         size={1.1}
-        speed={0.06}
+        speed={0.04}
         interactive={true}
-        className="opacity-60"
+        className="opacity-30"
       />
 
-      {/* Background halos */}
+      {/* Background studio halos */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px]
-          bg-[radial-gradient(ellipse,rgba(212,163,115,0.18)_0%,transparent_65%)]" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[500px]
-          bg-[radial-gradient(ellipse,rgba(198,134,66,0.12)_0%,transparent_65%)]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px]
-          bg-[radial-gradient(ellipse,rgba(229,169,80,0.08)_0%,transparent_65%)]" />
+        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1000px] h-[750px]
+          bg-[radial-gradient(ellipse,rgba(0,114,255,0.08)_0%,transparent_65%)]" />
+        <div className="absolute bottom-0 right-0 w-[700px] h-[600px]
+          bg-[radial-gradient(ellipse,rgba(0,245,160,0.08)_0%,transparent_65%)]" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px]
+          bg-[radial-gradient(ellipse,rgba(255,109,0,0.06)_0%,transparent_65%)]" />
       </div>
 
-      {/* Grid texture */}
+      {/* Architect grid texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.05]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(212,163,115,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(212,163,115,0.5) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+            "linear-gradient(rgba(0,114,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,114,255,0.3) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
         }}
       />
 
       {/* Navbar */}
       <Navbar />
 
-      {/* Main content */}
-      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16
-        px-4 lg:px-8 max-w-7xl mx-auto w-full py-20 pt-24">
+      {/* Main content — Clean Viewport Fitting */}
+      <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12
+        px-4 lg:px-8 max-w-7xl mx-auto w-full py-6 lg:py-0 my-auto">
 
         {/* Left — Text */}
-        <div className="flex-1 max-w-2xl lg:pr-8">
+        <div className="flex-1 max-w-2xl lg:pr-6">
           {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-7"
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-4"
           >
-            <Badge variant="accent" size="lg" dot animate className="gap-2">
-              <Sparkles className="w-3 h-3" />
-              NOUVX OPS · LIVE SYSTEM MAP · ACTIVE
-            </Badge>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-[#f0f6ff] border border-[#d0e2ff] text-[#0062ff] shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#00c853] animate-pulse" />
+              <Sparkles className="w-3.5 h-3.5 text-[#00c6ff]" />
+              A BRIGHTER TOMORROW WITH SKILLS · LEARN • CODE • CREATE
+            </div>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
             id="hero-title"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="font-display font-bold mb-6 leading-[1.04] tracking-tight"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
+            className="font-display font-bold mb-4 leading-[1.06] tracking-tight"
           >
-            <span className="block text-4xl sm:text-5xl lg:text-6xl xl:text-[4.5rem] text-text-primary">
-              Engineering the
+            <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-[3.8rem] text-[#140f0c]">
+              Transforming Minds.
             </span>
-            <span className="block text-4xl sm:text-5xl lg:text-6xl xl:text-[4.5rem]">
-              <span className="gradient-text">Future of Intelligent</span>
+            <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-[3.8rem]">
+              <span className="bg-gradient-to-r from-[#0062ff] via-[#00c6ff] to-[#00e5a3] bg-clip-text text-transparent">
+                Accelerating Engineers.
+              </span>
             </span>
-            <span className="block text-4xl sm:text-5xl lg:text-6xl xl:text-[4.5rem] text-text-primary">
-              Systems<span className="text-text-muted font-normal">.</span>
+            <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-[3.8rem] text-[#140f0c]">
+              Building Intelligent Systems<span className="text-[#00c853]">.</span>
             </span>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.22 }}
-            className="text-base sm:text-lg text-text-secondary leading-relaxed max-w-lg mb-10"
+            transition={{ duration: 0.5, delay: 0.16 }}
+            className="text-sm sm:text-base text-[#524438] leading-relaxed max-w-xl mb-6 font-normal"
           >
-            NOUVX delivers advanced AI infrastructure, robotics platforms, computer vision systems,
-            and enterprise-scale operational technology for complex real-world environments.
+            NUOVX is the premier AI, robotics, and advanced software engineering platform 
+            empowering creators to master deep neural architectures, deploy autonomous fleets, 
+            and code production-ready intelligent systems.
           </motion.p>
+
+          {/* Feature Chips */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.22 }}
+            className="flex flex-wrap gap-2 mb-6"
+          >
+            {[
+              { label: "⚡ CUDA & TensorRT", bg: "bg-[#eef6ff] text-[#0062ff] border-[#cce1ff]" },
+              { label: "🤖 ROS 2 & Omniverse", bg: "bg-[#f0fbf4] text-[#00a844] border-[#c6f0d4]" },
+              { label: "👁️ Metropolis Vision AI", bg: "bg-[#f5f0ff] text-[#7928ca] border-[#e4d4ff]" },
+              { label: "🌐 Production K8s Clusters", bg: "bg-[#fff8f0] text-[#d96500] border-[#fed7aa]" },
+            ].map((chip) => (
+              <span
+                key={chip.label}
+                className={cn("px-2.5 py-1 rounded-lg text-xs font-mono font-semibold border", chip.bg)}
+              >
+                {chip.label}
+              </span>
+            ))}
+          </motion.div>
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.32 }}
-            className="flex flex-wrap gap-3.5 mb-14"
+            transition={{ duration: 0.5, delay: 0.28 }}
+            className="flex flex-wrap gap-3 mb-8"
           >
-            <Button size="lg" className="group shine" asChild>
+            <Button size="lg" className="group bg-gradient-to-r from-[#0062ff] to-[#00c853] text-[#ffffff] font-bold shadow-[0_4px_22px_rgba(0,98,255,0.28)] hover:shadow-[0_8px_30px_rgba(0,98,255,0.4)]" asChild>
               <a href="/contact">
-                Start a Project
+                Start Coding Now
                 <ArrowRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href="#systems">Explore Systems</a>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              asChild
+              className="bg-white border-[#d8c7b5] text-[#2c2118] hover:bg-[#f7efe5] hover:border-[#0062ff]/50 shadow-sm font-semibold"
+            >
+              <a href="#systems">Explore Ecosystem</a>
             </Button>
           </motion.div>
 
-          {/* Stats */}
+          {/* Stats Row */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.44 }}
-            className="flex flex-wrap items-center gap-6 sm:gap-10"
+            transition={{ duration: 0.5, delay: 0.36 }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 p-3 rounded-2xl bg-[#ffffff] border border-[#e2d5c4] shadow-[0_4px_20px_rgba(40,25,15,0.04)]"
           >
             {STATS.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.44 + i * 0.08 }}
-                className="flex items-center gap-3"
-              >
+              <div key={stat.label} className="flex items-center gap-2">
                 <div
-                  className="stat-icon-wrap group-hover:border-border-bright"
-                  style={{ borderColor: `${stat.color}35` }}
+                  className="w-8 h-8 rounded-lg flex items-center justify-center border transition-all"
+                  style={{ borderColor: `${stat.color}40`, backgroundColor: `${stat.color}14` }}
                 >
-                  <stat.icon className="w-4.5 h-4.5" style={{ color: stat.color }} aria-hidden="true" />
+                  <stat.icon className="w-4 h-4" style={{ color: stat.color }} aria-hidden="true" />
                 </div>
                 <div>
-                  <div className="flex items-baseline gap-0.5">
-                    <MetricCounter
-                      value={stat.value}
-                      suffix={stat.suffix}
-                      duration={1400}
-                      delay={stat.delay}
-                      className="text-2xl font-bold font-display leading-none"
-                      style={{ color: stat.color }}
-                    />
-                  </div>
-                  <div className="text-[10px] text-text-muted font-mono uppercase tracking-widest mt-0.5">
+                  <MetricCounter
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    duration={1400}
+                    delay={stat.delay}
+                    className="text-lg font-bold font-display leading-none text-[#140f0c]"
+                  />
+                  <div className="text-[10px] text-[#7a6a5c] font-mono uppercase tracking-wider mt-0.5">
                     {stat.label}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Right — System Map */}
+        {/* Right — System Map (Floating Enterprise Hardware Chassis) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full lg:w-[560px] h-[460px] lg:h-[580px] flex-shrink-0"
+          transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full lg:w-[540px] h-[400px] lg:h-[500px] flex-shrink-0"
         >
-          {/* Outer glow ring */}
-          <div className="absolute inset-4 rounded-3xl bg-gradient-to-br from-[#d4a373]/25 via-[#b87333]/15 to-transparent blur-3xl" />
+          {/* Outer glow ring on white */}
+          <div className="absolute inset-4 rounded-3xl bg-gradient-to-br from-[#d4a373]/30 via-[#b87333]/20 to-transparent blur-3xl opacity-80" />
 
           {/* Glass frame */}
-          <div className="absolute inset-0 rounded-3xl border border-[#d4a373]/30 bg-[#120d0a]/90 backdrop-blur-xl shadow-[0_0_50px_rgba(212,163,115,0.15),0_20px_60px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.08)]" />
+          <div className="absolute inset-0 rounded-3xl border border-[#b87333]/45 bg-[#120d0a] shadow-[0_25px_60px_rgba(40,25,15,0.22),0_4px_20px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.1)]" />
 
           <SystemMap className="w-full h-full" interactive={true} />
 
