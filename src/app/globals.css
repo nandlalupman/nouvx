@@ -1,26 +1,436 @@
 @import "tailwindcss";
 
+/* ============================================================
+   NOUVX — Luxury Tech Design System
+   Obsidian Espresso × Warm Champagne Beige × Radiant Bronze × High-Contrast Visibility
+   (NO Red, NO Pink — Sophisticated Beige & Brown Palette)
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Deep Obsidian Espresso Backgrounds ── */
+  --bg-primary:    #0a0807;
+  --bg-secondary:  #100d0b;
+  --bg-tertiary:   #181310;
+  --bg-card:       #14100d;
+  --bg-elevated:   #1e1713;
+  --bg-overlay:    #0a0807;
+
+  /* ── Precision Warm Bronze Borders (High Visibility) ── */
+  --border:         #382d24;
+  --border-bright:  #544235;
+  --border-accent:  rgba(212, 163, 115, 0.55);
+  --border-glow:    rgba(212, 163, 115, 0.30);
+
+  /* ── Primary Accent — Warm Champagne Gold / Beige ── */
+  --accent-primary: #d4a373;
+  --accent-bright:  #e2b17a;
+  --accent-soft:    #c5905d;
+  --accent-dim:     rgba(212, 163, 115, 0.12);
+  --accent-muted:   rgba(212, 163, 115, 0.28);
+  --accent-glow:    rgba(212, 163, 115, 0.40);
+  --accent-halo:    rgba(212, 163, 115, 0.08);
+
+  /* ── Secondary Accent — Radiant Bronze / Caramel ── */
+  --indigo:         #b87333;
+  --indigo-bright:  #c68642;
+  --indigo-dim:     rgba(184, 115, 51, 0.12);
+  --indigo-glow:    rgba(184, 115, 51, 0.32);
+
+  /* ── Warm Amber / Ochre ── */
+  --emerald:        #e5a950;
+  --emerald-bright: #f0be6b;
+  --emerald-dim:    rgba(229, 169, 80, 0.12);
+  --emerald-glow:   rgba(229, 169, 80, 0.28);
+
+  /* ── Deep Terracotta / Rust (Replaces Red/Pink cleanly) ── */
+  --rose:           #c2653c;
+  --rose-dim:       rgba(194, 101, 60, 0.12);
+  --rose-glow:      rgba(194, 101, 60, 0.28);
+
+  /* ── Soft Ivory / Champagne Cream ── */
+  --sky:            #ecdcc9;
+  --sky-dim:        rgba(236, 220, 201, 0.10);
+
+  /* ── Status ── */
+  --success:   #10b981;
+  --warning:   #e5a950;
+  --error:     #c25736;
+  --info:      #d4a373;
+
+  /* ── Domain Colors (Warm Studio Tech Stack) ── */
+  --inference:      #d4a373;
+  --vision:         #10b981;
+  --robotics:       #c68642;
+  --infrastructure: #b87333;
+  --security:       #c2653c;
+  --automation:     #ecdcc9;
+
+  /* ── High-Contrast Crystal-Clear Visibility Typography ── */
+  --text-primary:   #ffffff;
+  --text-secondary: #ded7cf;
+  --text-muted:     #b8aca0;
+  --text-dim:       #807266;
+
+  /* ── Radiant Warm Gradients ── */
+  --gradient-hero:    linear-gradient(135deg, #f3ece2 0%, #d4a373 50%, #c68642 100%);
+  --gradient-hero-2:  linear-gradient(135deg, #d4a373 0%, #10b981 100%);
+  --gradient-card:    linear-gradient(145deg, rgba(212, 163, 115, 0.05) 0%, rgba(198, 134, 66, 0.02) 100%);
+  --gradient-border:  linear-gradient(135deg, #d4a373, #c68642, #b87333);
+  --gradient-glow:    radial-gradient(ellipse at center, rgba(212, 163, 115, 0.22) 0%, transparent 70%);
 }
 
+/* ── Tailwind Token Bridge ── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary:     var(--bg-primary);
+  --color-bg-secondary:   var(--bg-secondary);
+  --color-bg-tertiary:    var(--bg-tertiary);
+  --color-bg-card:        var(--bg-card);
+  --color-bg-elevated:    var(--bg-elevated);
+  --color-border:         var(--border);
+  --color-border-bright:  var(--border-bright);
+  --color-border-accent:  var(--border-accent);
+  --color-accent:         var(--accent-primary);
+  --color-accent-bright:  var(--accent-bright);
+  --color-accent-dim:     var(--accent-dim);
+  --color-accent-muted:   var(--accent-muted);
+  --color-accent-glow:    var(--accent-glow);
+  --color-indigo:         var(--indigo);
+  --color-indigo-bright:  var(--indigo-bright);
+  --color-indigo-dim:     var(--indigo-dim);
+  --color-emerald:        var(--emerald);
+  --color-rose:           var(--rose);
+  --color-sky:            var(--sky);
+  --color-text-primary:   var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted:     var(--text-muted);
+  --color-success:        var(--success);
+  --color-warning:        var(--warning);
+  --color-error:          var(--error);
+  --color-inference:      var(--inference);
+  --color-vision:         var(--vision);
+  --color-robotics:       var(--robotics);
+  --color-infrastructure: var(--infrastructure);
+  --color-security:       var(--security);
+  --font-display:  var(--font-space-grotesk);
+  --font-mono:     var(--font-jetbrains-mono);
+  --font-ui:       var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  *, *::before, *::after {
+    border-color: var(--border);
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background-color: var(--bg-primary);
+  }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-ui), system-ui, sans-serif;
+    overflow-x: hidden;
+    /* Warm Champagne & Bronze Ambient Glow on deep obsidian espresso */
+    background-image:
+      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(212, 163, 115, 0.16) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 45% at 85% 80%,  rgba(198, 134, 66, 0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 15% 45%,  rgba(229, 169, 80, 0.08) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(212, 163, 115, 0.35);
+    color: #ffffff;
+  }
+
+  /* Warm Bronze Scrollbar */
+  ::-webkit-scrollbar        { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track  { background: var(--bg-secondary); }
+  ::-webkit-scrollbar-thumb  {
+    background: linear-gradient(180deg, #d4a373, #b87333);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #e2b17a; }
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--text-primary);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   LAYOUT TOKENS & VISIBILITY UTILITIES
+   ============================================================ */
+@layer utilities {
+
+  .section-container {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 5rem);
+  }
+
+  .section-header { text-align: left; }
+
+  .section-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 50ch;
+    line-height: 1.75;
+  }
+
+  .text-balance { text-wrap: balance; }
+
+  /* ── Gradient text (Champagne Ivory → Warm Gold Beige → Bronze) ── */
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-emerald {
+    background: var(--gradient-hero-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Warm Smoked Glassmorphism ── */
+  .glass {
+    background: rgba(22, 17, 14, 0.85);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(212, 163, 115, 0.22);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-light {
+    background: rgba(26, 20, 16, 0.70);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 163, 115, 0.15);
+  }
+
+  /* ── Warm Smoked Obsidian Card ── */
+  .card-premium {
+    background: var(--bg-card);
+    border: 1px solid rgba(212, 163, 115, 0.16);
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .card-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-card);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  .card-premium:hover {
+    border-color: rgba(212, 163, 115, 0.55);
+    box-shadow:
+      0 0 0 1px rgba(212, 163, 115, 0.30),
+      0 20px 50px rgba(0, 0, 0, 0.85),
+      0 0 35px rgba(212, 163, 115, 0.20);
+    transform: translateY(-4px);
+  }
+
+  /* ── Glow effects ── */
+  .glow-accent {
+    box-shadow:
+      0 0 24px var(--accent-glow),
+      0 0 60px var(--accent-dim),
+      inset 0 1px 0 rgba(212, 163, 115, 0.35);
+  }
+
+  /* ── Gradient border ── */
+  .gradient-border {
+    position: relative;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: var(--gradient-border);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+  .gradient-border:hover::before { opacity: 0.85; }
+
+  /* ── Tag pill ── */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.375rem;
+    background: #1c1613;
+    border: 1px solid #33261e;
+    font-size: 0.6875rem;
+    font-family: var(--font-mono);
+    color: #d6cfc7;
+    letter-spacing: 0.04em;
+    transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+  }
+  .tag:hover {
+    color: #e2b17a;
+    border-color: rgba(212, 163, 115, 0.5);
+    background: rgba(212, 163, 115, 0.12);
+  }
+
+  /* ── Warm Champagne Live Dot badge ── */
+  .dot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    background: rgba(212, 163, 115, 0.14);
+    border: 1px solid rgba(212, 163, 115, 0.38);
+    color: #e2b17a;
+    font-size: 0.6875rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* ── Nav link ── */
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #d6cfc7;
+    letter-spacing: 0.01em;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0; right: 0;
+    height: 2px;
+    background: #d4a373;
+    border-radius: 1px;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+    transform-origin: left;
+  }
+  .nav-link:hover { color: #ffffff; }
+  .nav-link:hover::after { transform: scaleX(1); }
+
+  /* ── Stat icon wrap ── */
+  .stat-icon-wrap {
+    width: 2.75rem; height: 2.75rem;
+    border-radius: 0.75rem;
+    background: #191411;
+    border: 1px solid #362920;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  .stat-icon-wrap:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 163, 115, 0.25);
+    border-color: rgba(212, 163, 115, 0.5);
+  }
+
+  /* ── Input ── */
+  .input {
+    background: #181310;
+    border: 1px solid #33261e;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+  }
+  .input:focus {
+    outline: none;
+    border-color: #d4a373;
+    box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.18);
+  }
+  .input::placeholder { color: #9a8c80; }
+
+  /* ── Metric glow number ── */
+  .metric-value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 3px currentColor); }
+  50%       { opacity: 1;   filter: drop-shadow(0 0 12px currentColor); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-8px);}
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes data-flow {
+  0%   { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0;   }
+}
+
+/* ── Utility animation classes ── */
+.animate-pulse-glow  { animation: pulse-glow  2s ease-in-out infinite; }
+.animate-float       { animation: float       3.5s ease-in-out infinite; }
+.animate-rotate-slow { animation: rotate-slow 24s  linear     infinite; }
+.animate-data-flow   { animation: data-flow   1.8s linear     infinite; }
+
+/* ============================================================
+   WARM MATRIX GRID TEXTURES
+   ============================================================ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 163, 115, 0.3), transparent);
+}
+
+.grid-texture {
+  background-image:
+    linear-gradient(rgba(212, 163, 115, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 163, 115, 0.05) 1px, transparent 1px);
+  background-size: 54px 54px;
 }
