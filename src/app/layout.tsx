@@ -66,6 +66,8 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
@@ -76,10 +78,25 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="color-scheme" content="light" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('nouvx-theme');
+                  var theme = saved === 'light' ? 'light' : 'dark';
+                  document.documentElement.classList.add(theme);
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col bg-bg-primary text-text-primary">
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

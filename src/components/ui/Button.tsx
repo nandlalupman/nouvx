@@ -15,14 +15,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: [
-          "bg-gradient-to-r from-[#e2b17a] via-[#d4a373] to-[#b87333] hover:from-[#eed0a8] hover:to-[#c68642] text-[#0a0807] font-extrabold",
-          "shadow-[0_0_24px_rgba(212,163,115,0.45)]",
-          "hover:shadow-[0_0_36px_rgba(212,163,115,0.65)] hover:scale-[1.02] transition-all",
+          "bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold",
+          "shadow-[0_0_24px_rgba(212,163,115,0.38)]",
+          "hover:shadow-[0_0_36px_rgba(212,163,115,0.6)] hover:scale-[1.02] transition-all",
         ].join(" "),
         indigo: [
-          "bg-[#10b981] hover:bg-[#34d399] text-[#0a0807] font-extrabold",
-          "shadow-[0_0_20px_rgba(16,185,129,0.35)]",
-          "hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:scale-[1.02]",
+          "bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold",
+          "shadow-[0_0_24px_rgba(212,163,115,0.38)]",
+          "hover:shadow-[0_0_36px_rgba(212,163,115,0.6)] hover:scale-[1.02] transition-all",
         ].join(" "),
         destructive:
           "bg-[#c25736] text-white hover:bg-[#d46642] shadow-[0_4px_16px_rgba(194,87,54,0.35)]",
