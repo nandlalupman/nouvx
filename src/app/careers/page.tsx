@@ -18,7 +18,6 @@ import {
   X
 } from "lucide-react";
 import { Button, NuovxLogo, Badge, Card, CardContent } from "@/components/ui";
-import { ThemeToggle, useTheme } from "@/components/theme/ThemeProvider";
 import { Footer } from "@/components/footer/Footer";
 
 interface JobPosition {
@@ -101,7 +100,6 @@ const POSITIONS: JobPosition[] = [
 ];
 
 export default function CareersPage() {
-  const { theme } = useTheme();
   const [selectedDept, setSelectedDept] = React.useState<string>("All");
   const [activeJob, setActiveJob] = React.useState<JobPosition | null>(null);
   const [isApplying, setIsApplying] = React.useState(false);
@@ -127,7 +125,7 @@ export default function CareersPage() {
         <div className="section-container flex items-center justify-between h-16 lg:h-[4.5rem]">
           <div className="flex items-center gap-6">
             <a href="/" className="flex items-center group py-1">
-              <NuovxLogo variant={theme === "light" ? "light" : "dark"} size="sm" showTagline={false} />
+              <NuovxLogo variant="dark" size="sm" showTagline={false} />
             </a>
             <span className="h-4 w-px bg-border hidden sm:block" />
             <a 
@@ -140,7 +138,6 @@ export default function CareersPage() {
           </div>
 
           <div className="flex items-center gap-3">
-            <ThemeToggle />
             <Button
               size="sm"
               className="bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold text-[13px] rounded-xl px-4 shadow-sm"

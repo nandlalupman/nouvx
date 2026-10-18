@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import { Button, NuovxLogo } from "@/components/ui";
 import { MetricCounter, ParticleField } from "./ParticleField";
-import { useTheme, ThemeToggle } from "@/components/theme/ThemeProvider";
 import { cn } from "@/lib/utils";
 
 /* ── Showcase items for the dark enterprise bento grid ── */
@@ -90,7 +89,6 @@ function AmbientOrb({
 /* ── Dark Glass Navbar ── */
 function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
-  const { theme } = useTheme();
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -112,18 +110,19 @@ function Navbar() {
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-16 lg:h-[4.5rem]">
-          {/* Logo with theme responsiveness */}
+          {/* Brand Logo */}
           <a href="/" className="flex items-center group py-1">
-            <NuovxLogo variant={theme === "light" ? "light" : "dark"} size="sm" showTagline={false} />
+            <NuovxLogo variant="dark" size="sm" showTagline={false} />
           </a>
 
           {/* Nav Links */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
             {[
+              { label: "About", href: "/about" },
+              { label: "Services", href: "/services" },
               { label: "Systems", href: "#systems" },
               { label: "Architecture", href: "#architecture" },
               { label: "Operations", href: "#operations" },
-              { label: "Stack", href: "#stack" },
               { label: "Careers", href: "/careers" },
             ].map((link) => (
               <a
@@ -138,10 +137,8 @@ function Navbar() {
             ))}
           </nav>
 
-          {/* Actions with ONE Unified Button Color & Theme Toggle */}
+          {/* Actions */}
           <div className="flex items-center gap-3">
-            <ThemeToggle />
-
             <Button
               variant="ghost"
               size="sm"

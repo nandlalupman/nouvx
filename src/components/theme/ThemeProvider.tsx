@@ -23,41 +23,35 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
-    // Check saved theme or system preference
-    const saved = localStorage.getItem("nouvx-theme") as Theme | null;
-    const initialTheme: Theme = saved === "light" ? "light" : "dark";
-    
-    setThemeState(initialTheme);
-    applyTheme(initialTheme);
+    // Permanently ensure dark theme
+    localStorage.setItem("nouvx-theme", "dark");
+    const root = document.documentElement;
+    root.classList.remove("light");
+    root.classList.add("dark");
+    root.setAttribute("data-theme", "dark");
+    setThemeState("dark");
     setMounted(true);
   }, []);
 
   const applyTheme = (t: Theme) => {
     const root = document.documentElement;
-    if (t === "light") {
-      root.classList.add("light");
-      root.classList.remove("dark");
-      root.setAttribute("data-theme", "light");
-    } else {
-      root.classList.add("dark");
-      root.classList.remove("light");
-      root.setAttribute("data-theme", "dark");
-    }
+    root.classList.add("dark");
+    root.classList.remove("light");
+    root.setAttribute("data-theme", "dark");
   };
 
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-    localStorage.setItem("nouvx-theme", newTheme);
-    applyTheme(newTheme);
+  const setTheme = (_newTheme: Theme) => {
+    setThemeState("dark");
+    localStorage.setItem("nouvx-theme", "dark");
+    applyTheme("dark");
   };
 
   const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
+    // No-op: Dark mode only
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider value={{ theme: "dark", toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

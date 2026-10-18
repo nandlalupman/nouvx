@@ -79,45 +79,6 @@
   --gradient-glow:    radial-gradient(ellipse at center, rgba(212, 163, 115, 0.22) 0%, transparent 70%);
 }
 
-/* ── Light Mode Color Overrides ── */
-html.light,
-[data-theme="light"] {
-  /* Backgrounds */
-  --bg-primary:    #faf7f2;
-  --bg-secondary:  #f3ede3;
-  --bg-tertiary:   #eae1d3;
-  --bg-card:       #ffffff;
-  --bg-elevated:   #ffffff;
-  --bg-overlay:    #faf7f2;
-
-  /* Borders */
-  --border:         #dfd2c2;
-  --border-bright:  #cbb7a1;
-  --border-accent:  rgba(184, 115, 51, 0.45);
-  --border-glow:    rgba(184, 115, 51, 0.20);
-
-  /* Primary Accent — Warm Bronze / Champagne */
-  --accent-primary: #b87333;
-  --accent-bright:  #c68642;
-  --accent-soft:    #9e5e27;
-  --accent-dim:     rgba(184, 115, 51, 0.08);
-  --accent-muted:   rgba(184, 115, 51, 0.20);
-  --accent-glow:    rgba(184, 115, 51, 0.28);
-  --accent-halo:    rgba(184, 115, 51, 0.05);
-
-  /* Typography */
-  --text-primary:   #18120d;
-  --text-secondary: #4a3e35;
-  --text-muted:     #736356;
-  --text-dim:       #9e8c7e;
-
-  /* Gradients */
-  --gradient-hero:    linear-gradient(135deg, #18120d 0%, #b87333 50%, #c68642 100%);
-  --gradient-card:    linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 237, 227, 0.7) 100%);
-  --gradient-border:  linear-gradient(135deg, #b87333, #c68642, #d4a373);
-  --gradient-glow:    radial-gradient(ellipse at center, rgba(184, 115, 51, 0.15) 0%, transparent 70%);
-}
-
 /* ── Tailwind Token Bridge ── */
 @theme inline {
   --color-bg-primary:     var(--bg-primary);
@@ -183,13 +144,6 @@ html.light,
       radial-gradient(ellipse 55% 45% at 85% 80%,  rgba(198, 134, 66, 0.10) 0%, transparent 60%),
       radial-gradient(ellipse 50% 40% at 15% 45%,  rgba(229, 169, 80, 0.08) 0%, transparent 60%);
     background-attachment: fixed;
-  }
-
-  html.light body,
-  [data-theme="light"] body {
-    background-image:
-      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(184, 115, 51, 0.08) 0%, transparent 65%),
-      radial-gradient(ellipse 55% 45% at 85% 80%,  rgba(198, 134, 66, 0.05) 0%, transparent 60%);
   }
 
   ::selection {
@@ -479,4 +433,44 @@ html.light,
     linear-gradient(rgba(212, 163, 115, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(212, 163, 115, 0.05) 1px, transparent 1px);
   background-size: 54px 54px;
+}
+
+/* ============================================================
+   MARQUEE ANIMATION (Nvidia Feature Ticker)
+   ============================================================ */
+@keyframes marquee {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+/* ============================================================
+   SHINE EFFECT (CTA Buttons)
+   ============================================================ */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  animation: shine-sweep 3s ease-in-out infinite;
+}
+@keyframes shine-sweep {
+  0%   { left: -100%; }
+  50%  { left: 150%; }
+  100% { left: 150%; }
 }

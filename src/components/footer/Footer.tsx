@@ -14,7 +14,6 @@ const FOOTER_LINKS = {
   ],
   company: [
     { label: "About",    href: "/about"    },
-    { label: "Research", href: "#research" },
     { label: "Careers",  href: "/careers"  },
     { label: "Contact",  href: "/contact"  },
   ],
@@ -54,7 +53,7 @@ export function Footer() {
           >
             {/* Logo */}
             <div className="mb-5">
-              <NuovxLogo variant="dark" size="md" showTagline={true} />
+              <NuovxLogo variant="dark" size="md" showTagline={false} />
             </div>
 
             <p className="text-text-secondary text-sm leading-relaxed mb-6 max-w-xs font-normal">

@@ -58,8 +58,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)",  color: "#ffffff" },
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)",  color: "#0a0807" },
+    { media: "(prefers-color-scheme: light)", color: "#0a0807" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -72,7 +72,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${jetbrainsMono.variable} ${plusJakarta.variable} h-full antialiased`}
+      className={`${outfit.variable} ${jetbrainsMono.variable} ${plusJakarta.variable} dark h-full antialiased`}
+      data-theme="dark"
       suppressHydrationWarning
     >
       <head>
@@ -83,10 +84,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             __html: `
               (function() {
                 try {
-                  var saved = localStorage.getItem('nouvx-theme');
-                  var theme = saved === 'light' ? 'light' : 'dark';
-                  document.documentElement.classList.add(theme);
-                  document.documentElement.setAttribute('data-theme', theme);
+                  localStorage.setItem('nouvx-theme', 'dark');
+                  document.documentElement.classList.remove('light');
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.setAttribute('data-theme', 'dark');
                 } catch (e) {}
               })();
             `,
