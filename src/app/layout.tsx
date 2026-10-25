@@ -5,21 +5,18 @@ import "./globals.css";
 const outfit = Outfit({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -58,8 +55,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)",  color: "#0a0807" },
-    { media: "(prefers-color-scheme: light)", color: "#0a0807" },
+    { media: "(prefers-color-scheme: dark)",  color: "#ffffff" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -67,13 +64,14 @@ export const viewport: Viewport = {
 };
 
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { CampaignBanner } from "@/components/campaigns/CampaignBanner";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${jetbrainsMono.variable} ${plusJakarta.variable} dark h-full antialiased`}
-      data-theme="dark"
+      className={`${outfit.variable} ${jetbrainsMono.variable} ${plusJakarta.variable} light h-full antialiased`}
+      data-theme="light"
       suppressHydrationWarning
     >
       <head>
@@ -84,17 +82,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             __html: `
               (function() {
                 try {
-                  localStorage.setItem('nouvx-theme', 'dark');
-                  document.documentElement.classList.remove('light');
-                  document.documentElement.classList.add('dark');
-                  document.documentElement.setAttribute('data-theme', 'dark');
+                  localStorage.setItem('nouvx-theme', 'light');
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.classList.add('light');
+                  document.documentElement.setAttribute('data-theme', 'light');
                 } catch (e) {}
               })();
             `,
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-bg-primary text-text-primary">
+      <body className="min-h-full flex flex-col bg-white text-slate-900">
+        <CampaignBanner />
         <ThemeProvider>
           {children}
         </ThemeProvider>

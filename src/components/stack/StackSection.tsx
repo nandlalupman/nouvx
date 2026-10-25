@@ -10,7 +10,7 @@ const STACK_CATEGORIES = [
   {
     title: "AI RUNTIME",
     icon: Cpu,
-    color: "#d4a373",
+    color: "#b45309",
     items: [
       { name: "Python 3.11+", desc: "Primary ML language", version: "3.11" },
       { name: "PyTorch 2.3", desc: "Deep learning framework", version: "2.3" },
@@ -25,7 +25,7 @@ const STACK_CATEGORIES = [
   {
     title: "ROBOTICS CONTROL",
     icon: Bot,
-    color: "#e5a950",
+    color: "#f59e0b",
     items: [
       { name: "ROS 2 Humble", desc: "Robotics middleware", version: "Humble" },
       { name: "Nav2", desc: "Navigation stack", version: "1.1" },
@@ -40,7 +40,7 @@ const STACK_CATEGORIES = [
   {
     title: "INFRASTRUCTURE",
     icon: Server,
-    color: "#b87333",
+    color: "#9a3412",
     items: [
       { name: "Kubernetes 1.29", desc: "Container orchestration", version: "1.29" },
       { name: "Docker 26", desc: "Container runtime", version: "26" },
@@ -70,7 +70,7 @@ const STACK_CATEGORIES = [
   {
     title: "BACKEND PLATFORM",
     icon: Database,
-    color: "#c25736",
+    color: "#ef4444",
     items: [
       { name: "FastAPI 0.110", desc: "High-performance API", version: "0.110" },
       { name: "Redis 7.2", desc: "In-memory store", version: "7.2" },
@@ -85,7 +85,7 @@ const STACK_CATEGORIES = [
   {
     title: "DATA & ML OPS",
     icon: Layers,
-    color: "#a89f91",
+    color: "#78350f",
     items: [
       { name: "MLflow 2.13", desc: "ML lifecycle", version: "2.13" },
       { name: "Kubeflow 1.8", desc: "ML on Kubernetes", version: "1.8" },
@@ -101,8 +101,8 @@ const STACK_CATEGORIES = [
 
 export function StackSection() {
   return (
-    <section id="stack" className="py-16 lg:py-20 bg-bg-secondary relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--accent-dim)_0%,_transparent_50%)] pointer-events-none" />
+    <section id="stack" className="py-16 lg:py-20 bg-slate-50/70 border-b border-slate-200 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(79,70,229,0.03)_0%,transparent_50%)] pointer-events-none" />
       
       <div className="section-container relative z-10">
         <motion.div

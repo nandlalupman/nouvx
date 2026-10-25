@@ -15,7 +15,9 @@ import {
   Sparkles, 
   CheckCircle2, 
   Send,
-  X
+  X,
+  AlertCircle,
+  Loader2
 } from "lucide-react";
 import { Button, NuovxLogo, Badge, Card, CardContent } from "@/components/ui";
 import { Footer } from "@/components/footer/Footer";
@@ -104,28 +106,65 @@ export default function CareersPage() {
   const [activeJob, setActiveJob] = React.useState<JobPosition | null>(null);
   const [isApplying, setIsApplying] = React.useState(false);
   const [submitted, setSubmitted] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
+
+  // Application form state
+  const [appForm, setAppForm] = React.useState({
+    full_name: "",
+    email: "",
+    profile_url: "",
+    background: "",
+  });
 
   const filteredPositions = selectedDept === "All"
     ? POSITIONS
     : POSITIONS.filter((p) => p.dept === selectedDept);
 
-  const handleSubmitApplication = (e: React.FormEvent) => {
+  const handleAppChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setAppForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmitApplication = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!activeJob) return;
+
     setIsApplying(true);
-    setTimeout(() => {
-      setIsApplying(false);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/careers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          job_id: activeJob.id,
+          job_title: activeJob.title,
+          ...appForm,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit application");
+      }
+
       setSubmitted(true);
-    }, 1200);
+      setAppForm({ full_name: "", email: "", profile_url: "", background: "" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setIsApplying(false);
+    }
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-bg-primary text-text-primary selection:bg-accent/30 selection:text-white">
+    <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-accent/30 selection:text-white">
       {/* ── Top Navigation ── */}
-      <header className="sticky top-0 z-50 bg-bg-primary/90 backdrop-blur-2xl border-b border-border shadow-xs">
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-2xl border-b border-border shadow-xs">
         <div className="section-container flex items-center justify-between h-16 lg:h-[4.5rem]">
           <div className="flex items-center gap-6">
             <a href="/" className="flex items-center group py-1">
-              <NuovxLogo variant="dark" size="sm" showTagline={false} />
+              <NuovxLogo variant="light" size="sm" showTagline={false} />
             </a>
             <span className="h-4 w-px bg-border hidden sm:block" />
             <a 
@@ -139,8 +178,9 @@ export default function CareersPage() {
 
           <div className="flex items-center gap-3">
             <Button
+              variant="ai"
               size="sm"
-              className="bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold text-[13px] rounded-xl px-4 shadow-sm"
+              className="rounded-xl px-4 shadow-sm"
               asChild
             >
               <a href="/contact">Contact Us</a>
@@ -150,9 +190,9 @@ export default function CareersPage() {
       </header>
 
       {/* ── Careers Hero ── */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-bg-primary">
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white border-b border-slate-200">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse,rgba(212,163,115,0.14)_0%,transparent_70%)]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse,rgba(180,83,9,0.14)_0%,transparent_70%)]" />
         </div>
 
         <div className="section-container relative z-10 text-center max-w-3xl mx-auto">
@@ -162,7 +202,7 @@ export default function CareersPage() {
 
           <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-6 text-text-primary">
             Build the Frontier of{" "}
-            <span className="bg-gradient-to-r from-text-primary via-[#e2b17a] to-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-text-primary via-[#b45309] to-[#d97706] bg-clip-text text-transparent">
               Physical AI &amp; Robotics
             </span>
           </h1>
@@ -207,7 +247,7 @@ export default function CareersPage() {
                   onClick={() => setSelectedDept(dept)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-mono font-medium transition-all ${
                     selectedDept === dept
-                      ? "bg-accent text-[#0a0807] font-bold shadow-xs"
+                      ? "bg-accent text-[#05050a] font-bold shadow-xs"
                       : "bg-bg-card border border-border text-text-muted hover:text-text-primary hover:border-accent/40"
                   }`}
                 >
@@ -264,10 +304,11 @@ export default function CareersPage() {
                 <div className="flex items-center gap-3 flex-shrink-0">
                   <Button
                     size="sm"
-                    className="bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold text-xs rounded-xl px-5 shadow-xs"
+                    className="bg-[#b45309] hover:bg-[#d97706] text-white font-bold text-xs rounded-xl px-5 shadow-xs"
                     onClick={() => {
                       setActiveJob(job);
                       setSubmitted(false);
+                      setError(null);
                     }}
                   >
                     Apply Role
@@ -310,7 +351,7 @@ export default function CareersPage() {
                   </p>
                   <Button
                     onClick={() => setActiveJob(null)}
-                    className="bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold text-sm rounded-xl px-6"
+                    className="bg-[#b45309] hover:bg-[#d97706] text-white font-bold text-sm rounded-xl px-6"
                   >
                     Close Window
                   </Button>
@@ -329,6 +370,14 @@ export default function CareersPage() {
                     </p>
                   </div>
 
+                  {/* Error Message */}
+                  {error && (
+                    <div className="mb-4 p-3 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center gap-2 text-sm text-red-400">
+                      <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                      {error}
+                    </div>
+                  )}
+
                   <form onSubmit={handleSubmitApplication} className="space-y-4">
                     <div>
                       <label className="block text-xs font-mono text-text-secondary mb-1">
@@ -337,6 +386,9 @@ export default function CareersPage() {
                       <input
                         required
                         type="text"
+                        name="full_name"
+                        value={appForm.full_name}
+                        onChange={handleAppChange}
                         placeholder="Ada Lovelace"
                         className="w-full px-3.5 py-2.5 rounded-xl border border-border bg-bg-secondary text-sm text-text-primary focus:outline-none focus:border-accent transition-colors"
                       />
@@ -349,6 +401,9 @@ export default function CareersPage() {
                       <input
                         required
                         type="email"
+                        name="email"
+                        value={appForm.email}
+                        onChange={handleAppChange}
                         placeholder="ada@domain.com"
                         className="w-full px-3.5 py-2.5 rounded-xl border border-border bg-bg-secondary text-sm text-text-primary focus:outline-none focus:border-accent transition-colors"
                       />
@@ -361,6 +416,9 @@ export default function CareersPage() {
                       <input
                         required
                         type="url"
+                        name="profile_url"
+                        value={appForm.profile_url}
+                        onChange={handleAppChange}
                         placeholder="https://github.com/username"
                         className="w-full px-3.5 py-2.5 rounded-xl border border-border bg-bg-secondary text-sm text-text-primary focus:outline-none focus:border-accent transition-colors"
                       />
@@ -372,6 +430,9 @@ export default function CareersPage() {
                       </label>
                       <textarea
                         rows={3}
+                        name="background"
+                        value={appForm.background}
+                        onChange={handleAppChange}
                         placeholder="Briefly describe your experience with CUDA, ROS 2, or distributed systems..."
                         className="w-full px-3.5 py-2.5 rounded-xl border border-border bg-bg-secondary text-sm text-text-primary focus:outline-none focus:border-accent transition-colors"
                       />
@@ -380,10 +441,19 @@ export default function CareersPage() {
                     <Button
                       type="submit"
                       disabled={isApplying}
-                      className="w-full bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold text-sm rounded-xl py-3 mt-2 shadow-xs"
+                      className="w-full bg-[#b45309] hover:bg-[#d97706] text-white font-bold text-sm rounded-xl py-3 mt-2 shadow-xs disabled:opacity-60"
                     >
-                      {isApplying ? "Submitting Application..." : "Submit Application"}
-                      <Send className="w-4 h-4 ml-2" />
+                      {isApplying ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Submitting Application...
+                        </>
+                      ) : (
+                        <>
+                          Submit Application
+                          <Send className="w-4 h-4 ml-2" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </>

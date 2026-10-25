@@ -24,13 +24,13 @@ export function Badge({
     "inline-flex items-center gap-1.5 font-semibold rounded-full border transition-all duration-200 tracking-widest uppercase";
 
   const variants = {
-    default: "bg-[#d4a373]/15 text-[#e2b17a] border-[#d4a373]/35",
-    accent:  "bg-[#d4a373]/15 text-[#e2b17a] border-[#d4a373]/40 shadow-[0_0_12px_rgba(212,163,115,0.25)]",
-    indigo:  "bg-[#b87333]/15 text-[#c68642] border-[#b87333]/35",
-    success: "bg-[#10b981]/15 text-[#34d399] border-[#10b981]/30",
-    warning: "bg-[#e5a950]/15 text-[#f0be6b] border-[#e5a950]/35",
-    error:   "bg-[#c25736]/15 text-[#e07a5f] border-[#c25736]/35",
-    ghost:   "bg-[#1c1613] text-[#d6cfc7] border-[#33261e]",
+    default: "bg-amber-50 text-amber-800 border-amber-200",
+    accent:  "bg-violet-50 text-violet-800 border-violet-200/90 shadow-xs",
+    indigo:  "bg-violet-50 text-violet-700 border-violet-200",
+    success: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    warning: "bg-amber-50 text-amber-800 border-amber-200",
+    error:   "bg-rose-50 text-rose-700 border-rose-200",
+    ghost:   "bg-slate-100 text-slate-700 border-slate-200",
   };
 
   const sizes = {
@@ -40,13 +40,13 @@ export function Badge({
   };
 
   const dotColors: Record<string, string> = {
-    default: "bg-[#e2b17a] shadow-[0_0_8px_#e2b17a]",
-    accent:  "bg-[#e2b17a] shadow-[0_0_10px_#e2b17a]",
-    indigo:  "bg-[#c68642] shadow-[0_0_8px_#c68642]",
-    success: "bg-[#10b981] shadow-[0_0_8px_#10b981]",
-    warning: "bg-[#e5a950] shadow-[0_0_8px_#e5a950]",
-    error:   "bg-[#c25736] shadow-[0_0_8px_#c25736]",
-    ghost:   "bg-[#9a8c80]",
+    default: "bg-amber-600",
+    accent:  "bg-violet-600",
+    indigo:  "bg-violet-600",
+    success: "bg-emerald-600",
+    warning: "bg-amber-600",
+    error:   "bg-rose-600",
+    ghost:   "bg-slate-400",
   };
 
   return (

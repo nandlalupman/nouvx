@@ -86,7 +86,7 @@ function AmbientOrb({
 }
 
 
-/* ── Dark Glass Navbar ── */
+/* ── Clean White Glass Navbar ── */
 function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
 
@@ -104,15 +104,15 @@ function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-bg-primary/90 backdrop-blur-2xl border-b border-border shadow-[0_4px_30px_rgba(0,0,0,0.25)]"
-          : "bg-bg-primary/60 backdrop-blur-xl border-b border-border/40"
+          ? "bg-white/90 backdrop-blur-2xl border-b border-border shadow-[0_4px_20px_rgba(0,0,0,0.03)]"
+          : "bg-white/70 backdrop-blur-xl border-b border-border/50"
       )}
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-16 lg:h-[4.5rem]">
           {/* Brand Logo */}
           <a href="/" className="flex items-center group py-1">
-            <NuovxLogo variant="dark" size="sm" showTagline={false} />
+            <NuovxLogo variant="light" size="sm" showTagline={false} />
           </a>
 
           {/* Nav Links */}
@@ -128,7 +128,7 @@ function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="relative text-[13px] font-medium text-text-secondary hover:text-accent transition-colors duration-300 tracking-wide
+                className="relative text-[13px] font-medium text-text-secondary hover:text-text-primary transition-colors duration-300 tracking-wide
                   after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px]
                   after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
               >
@@ -142,19 +142,21 @@ function Navbar() {
             <Button
               variant="ghost"
               size="sm"
-              className="hidden lg:flex text-text-secondary hover:text-text-primary hover:bg-bg-card/50 text-[13px]"
+              className="hidden lg:flex text-text-secondary hover:text-text-primary hover:bg-bg-tertiary text-[13px]"
               asChild
             >
               <a href="/contact">Sign In</a>
             </Button>
             <Button
+              variant="ai"
               size="sm"
-              className="bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold text-[13px] rounded-xl px-5 shadow-[0_0_20px_rgba(212,163,115,0.35)]"
+              className="rounded-xl px-5 shadow-sm group"
               asChild
             >
-              <a href="/contact">
-                Deploy Now
-                <ArrowRight className="w-3.5 h-3.5 ml-1" />
+              <a href="/contact" className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                <span>Deploy Now</span>
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1 text-amber-300" />
               </a>
             </Button>
           </div>
@@ -183,7 +185,7 @@ const fadeUp: Variants = {
   },
 };
 
-/* ── Bento Tech Card for Dark Theme ── */
+/* ── Bento Tech Card for White Theme ── */
 function DarkBentoCard({
   src,
   alt,
@@ -204,33 +206,33 @@ function DarkBentoCard({
       initial={{ opacity: 0, scale: 0.94, filter: "blur(10px)" }}
       animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
       transition={{ duration: 0.8, delay: 0.3 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="relative rounded-2xl overflow-hidden group cursor-pointer w-full h-full border border-border bg-bg-card hover:border-accent/80 transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
+      className="relative rounded-2xl overflow-hidden group cursor-pointer w-full h-full border border-border bg-white hover:border-accent/60 transition-all duration-500 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)]"
     >
       {/* Background Image */}
       <Image
         src={src}
         alt={alt}
         fill
-        className="object-cover transition-transform duration-700 ease-out group-hover:scale-108 opacity-85 group-hover:opacity-100"
+        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-90 group-hover:opacity-100"
         sizes="(max-width: 768px) 100vw, 33vw"
       />
 
       {/* Cyber gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/40 to-black/20 opacity-90 group-hover:opacity-75 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#09090b]/85 via-[#09090b]/35 to-black/10 opacity-90 group-hover:opacity-80 transition-opacity duration-500" />
 
       {/* Tech Corner Brackets */}
-      <div className="absolute top-3 right-3 flex items-center gap-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
-        <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-        <span className="text-[9px] font-mono font-bold tracking-widest text-accent">LIVE</span>
+      <div className="absolute top-3 right-3 flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
+        <span className="text-[9px] font-mono font-bold tracking-widest text-white">LIVE</span>
       </div>
 
       {/* Badges and telemetry overlay */}
       <div className="absolute inset-x-0 bottom-0 p-4 z-10 flex flex-col justify-end">
         <div className="flex items-center gap-2 mb-1.5">
-          <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-accent bg-bg-primary/90 border border-border px-2 py-0.5 rounded-md backdrop-blur-md uppercase">
+          <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-text-primary bg-white/95 border border-white/60 px-2 py-0.5 rounded-md backdrop-blur-md uppercase shadow-xs">
             {badge}
           </span>
-          <span className="text-[9px] font-mono text-text-muted bg-bg-card/80 px-2 py-0.5 rounded-md border border-border/50 hidden sm:inline-block">
+          <span className="text-[9px] font-mono text-slate-200 bg-black/40 px-2 py-0.5 rounded-md border border-white/20 hidden sm:inline-block">
             {tech}
           </span>
         </div>
@@ -239,8 +241,8 @@ function DarkBentoCard({
           <span className="text-xs sm:text-sm font-display font-bold text-white tracking-tight group-hover:text-accent-bright transition-colors">
             {metric}
           </span>
-          <div className="w-7 h-7 rounded-lg bg-accent/15 border border-accent/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5">
-            <ArrowRight className="w-3.5 h-3.5 text-accent" />
+          <div className="w-7 h-7 rounded-lg bg-white/20 border border-white/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5 text-white">
+            <ArrowRight className="w-3.5 h-3.5" />
           </div>
         </div>
       </div>
@@ -249,7 +251,7 @@ function DarkBentoCard({
 }
 
 /* ═══════════════════════════════════════════════════════
-   ── HERO SECTION (DARK THEME · ENTERPRISE TECH) ──
+   ── HERO SECTION (WHITE THEME · ENTERPRISE TECH) ──
    ═══════════════════════════════════════════════════════ */
 export function Hero() {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -257,43 +259,43 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex flex-col overflow-hidden bg-bg-primary pt-16"
+      className="relative min-h-screen flex flex-col overflow-hidden bg-white text-slate-900 pt-16"
       aria-labelledby="hero-title"
     >
       {/* ── Interactive Three.js Particle Background ── */}
       <ParticleField
-        className="opacity-45 pointer-events-none"
-        particleCount={1400}
-        color="#d4a373"
-        size={1.6}
-        speed={0.12}
+        className="opacity-25 pointer-events-none"
+        particleCount={900}
+        color="#d97706"
+        size={1.2}
+        speed={0.10}
         interactive={true}
       />
 
-      {/* ── Ambient Warm Champagne & Bronze Glow Orbs ── */}
+      {/* ── Soft Ambient Glow Orbs — Warm Bronze & Dusk Amber ── */}
       <AmbientOrb
-        className="w-[750px] h-[750px] top-[-10%] left-[-15%] bg-[radial-gradient(circle,rgba(212,163,115,0.14)_0%,transparent_70%)]"
+        className="w-[750px] h-[750px] top-[-10%] left-[-15%] bg-[radial-gradient(circle,rgba(180,83,9,0.035)_0%,transparent_70%)]"
         delay={0}
         duration={24}
       />
       <AmbientOrb
-        className="w-[600px] h-[600px] top-[25%] right-[-10%] bg-[radial-gradient(circle,rgba(184,115,51,0.12)_0%,transparent_70%)]"
+        className="w-[600px] h-[600px] top-[25%] right-[-10%] bg-[radial-gradient(circle,rgba(217,119,6,0.025)_0%,transparent_70%)]"
         delay={3}
         duration={22}
       />
       <AmbientOrb
-        className="w-[500px] h-[500px] bottom-[5%] left-[30%] bg-[radial-gradient(circle,rgba(212,163,115,0.08)_0%,transparent_70%)]"
+        className="w-[500px] h-[500px] bottom-[5%] left-[30%] bg-[radial-gradient(circle,rgba(120,53,15,0.02)_0%,transparent_70%)]"
         delay={6}
         duration={26}
       />
 
       {/* Cyber Grid Pattern */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.20]"
+        className="absolute inset-0 pointer-events-none opacity-[0.45]"
         style={{
           backgroundImage:
-            "radial-gradient(circle, var(--accent-bright) 1px, transparent 1px)",
-          backgroundSize: "36px 36px",
+            "radial-gradient(circle, #cbd5e1 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
         }}
       />
 
@@ -312,12 +314,12 @@ export function Hero() {
         >
           {/* Platform Status Badge */}
           <motion.div variants={fadeUp} className="mb-5">
-            <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-mono font-semibold uppercase tracking-[0.16em] bg-bg-card/90 border border-border text-text-secondary shadow-sm">
+            <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[11px] font-mono font-semibold uppercase tracking-[0.16em] bg-white border border-slate-200 text-slate-700 shadow-xs">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <Sparkles className="w-3.5 h-3.5 text-accent" />
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               NOUVX OS v4.2 · ENTERPRISE PHYSICAL AI PLATFORM
             </span>
           </motion.div>
@@ -326,14 +328,14 @@ export function Hero() {
           <motion.h1
             id="hero-title"
             variants={fadeUp}
-            className="font-display font-extrabold text-[clamp(2.4rem,5.2vw,4.5rem)] leading-[1.1] tracking-[-0.035em] mb-5 text-text-primary"
+            className="font-display font-extrabold text-[clamp(2.4rem,5.2vw,4.5rem)] leading-[1.1] tracking-[-0.035em] mb-5 text-slate-900"
           >
             Sovereign Physical AI &amp;
             <br />
-            <span className="bg-gradient-to-r from-text-primary via-[#e2b17a] to-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#09090b] via-[#451a03] to-[#b45309] bg-clip-text text-transparent">
               Autonomous Robotics Infrastructure
             </span>
-            <span className="text-accent">.</span>
+            <span className="text-[#d97706]">.</span>
           </motion.h1>
 
           {/* Enterprise Capabilities Pills */}
@@ -346,9 +348,9 @@ export function Hero() {
             ].map((pill) => (
               <span
                 key={pill}
-                className="px-3 py-1 rounded-lg text-[11px] font-mono font-semibold border border-border bg-bg-card/80 text-text-secondary shadow-xs"
+                className="px-3 py-1 rounded-lg text-[11px] font-mono font-semibold border border-slate-200 bg-white text-slate-700 shadow-xs hover:border-amber-400 hover:text-slate-900 transition-colors"
               >
-                <span className="text-accent mr-1.5">●</span>
+                <span className="text-[#d97706] mr-1.5 font-bold">●</span>
                 {pill}
               </span>
             ))}
@@ -357,34 +359,34 @@ export function Hero() {
           {/* Genuine Enterprise Tech Mission */}
           <motion.p
             variants={fadeUp}
-            className="text-[15px] sm:text-[17px] text-text-secondary leading-[1.8] max-w-[660px] mx-auto mb-7 font-normal"
+            className="text-[15px] sm:text-[17px] text-slate-600 leading-[1.8] max-w-[660px] mx-auto mb-7 font-normal"
           >
             From microsecond GPU inference to autonomous fleet coordination across industrial edge environments.
             NOUVX delivers mission-critical physical AI infrastructure, low-latency vision pipelines, and ROS 2 control systems.
           </motion.p>
 
-          {/* CTAs — Single Consistent Button Color */}
+          {/* CTAs with Next-Gen AI feel */}
           <motion.div
             variants={fadeUp}
             className="flex flex-wrap items-center justify-center gap-4 mb-7"
           >
             <Button
+              variant="ai"
               size="lg"
-              className="group relative bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold
-                shadow-[0_0_24px_rgba(212,163,115,0.4)] hover:shadow-[0_0_36px_rgba(212,163,115,0.65)]
-                hover:scale-[1.02] transition-all duration-300 rounded-2xl px-8 h-12 text-[14px]"
+              className="rounded-2xl px-8 h-12 text-[14px] group"
               asChild
             >
-              <a href="/contact">
-                Deploy Infrastructure
-                <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+              <a href="/contact" className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
+                <span>Deploy Infrastructure</span>
+                <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1 text-amber-300" />
               </a>
             </Button>
 
             <Button
               variant="outline"
               size="lg"
-              className="border border-border bg-bg-card/90 text-text-secondary hover:text-text-primary hover:border-accent hover:bg-accent/10 rounded-2xl px-7 h-12 text-[14px] transition-all duration-300 shadow-xs"
+              className="border border-slate-200 bg-white text-slate-800 hover:bg-slate-50 hover:border-amber-300 rounded-2xl px-7 h-12 text-[14px] transition-all duration-300 shadow-xs"
               asChild
             >
               <a href="#systems">
@@ -396,22 +398,22 @@ export function Hero() {
           {/* Telemetry live status pill */}
           <motion.div
             variants={fadeUp}
-            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-xl bg-bg-card/90 border border-border text-[11px] font-mono text-text-muted mb-8 shadow-xs"
+            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-xl bg-white border border-slate-200 text-[11px] font-mono text-slate-600 mb-8 shadow-xs"
           >
-            <span className="flex items-center gap-1.5 text-[#10b981]">
+            <span className="flex items-center gap-1.5 text-emerald-600">
               <Radio className="w-3.5 h-3.5 animate-pulse" />
               SYSTEM TELEMETRY
             </span>
-            <span className="w-px h-3 bg-border" />
+            <span className="w-px h-3 bg-slate-200" />
             <span>12 DGX Clusters Active</span>
-            <span className="w-px h-3 bg-border" />
-            <span className="text-accent font-semibold">11.8ms P99 Latency</span>
+            <span className="w-px h-3 bg-slate-200" />
+            <span className="text-[#b45309] font-semibold">11.8ms P99 Latency</span>
           </motion.div>
 
           {/* Enterprise Platform Stats */}
           <motion.div
             variants={fadeUp}
-            className="flex items-center justify-center gap-6 sm:gap-14 p-4 rounded-2xl bg-bg-card/90 border border-border shadow-sm max-w-2xl mx-auto"
+            className="flex items-center justify-center gap-6 sm:gap-14 p-4 rounded-2xl bg-white border border-slate-200 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.04)] max-w-2xl mx-auto"
           >
             {[
               { value: 99.999, suffix: "%", label: "Reliability SLA", decimals: 3 },
@@ -420,7 +422,7 @@ export function Hero() {
               { value: 200, suffix: "+", label: "Fleet Bots" },
             ].map((stat, i) => (
               <React.Fragment key={stat.label}>
-                {i > 0 && <div className="w-px h-8 bg-border" />}
+                {i > 0 && <div className="w-px h-8 bg-slate-200" />}
                 <div className="flex flex-col items-center">
                   <MetricCounter
                     value={stat.value}
@@ -428,9 +430,9 @@ export function Hero() {
                     duration={1800}
                     delay={600 + i * 120}
                     decimals={(stat as any).decimals || 0}
-                    className="text-xl sm:text-2xl font-bold font-display text-text-primary tracking-tight"
+                    className="text-xl sm:text-2xl font-bold font-display text-slate-900 tracking-tight"
                   />
-                  <span className="text-[10px] text-text-muted font-mono uppercase tracking-[0.14em] mt-0.5">
+                  <span className="text-[10px] text-slate-500 font-mono uppercase tracking-[0.14em] mt-0.5">
                     {stat.label}
                   </span>
                 </div>
@@ -440,7 +442,7 @@ export function Hero() {
         </motion.div>
 
         {/* ══════════════════════════════════════
-           DARK BENTO GRID — Enterprise Visual Chassis
+           WHITE BENTO GRID — Enterprise Visual Chassis
            ══════════════════════════════════════ */}
         <div className="w-full mt-14 mb-8">
           <div className="grid grid-cols-2 lg:grid-cols-12 grid-rows-2 gap-3 lg:gap-4 h-[420px] sm:h-[460px] lg:h-[480px]">
@@ -512,10 +514,10 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="relative z-10 border-t border-border bg-bg-secondary/85 backdrop-blur-md"
+        className="relative z-10 border-t border-slate-200 bg-slate-50/90 backdrop-blur-md"
       >
         <div className="max-w-[1360px] mx-auto px-6 lg:px-10 py-5 flex items-center justify-between gap-6">
-          <span className="text-[10px] font-mono text-text-muted uppercase tracking-[0.2em] flex-shrink-0 flex items-center gap-2">
+          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.2em] flex-shrink-0 flex items-center gap-2">
             <Layers className="w-3.5 h-3.5 text-accent" />
             POWERED BY ENTERPRISE STACK
           </span>
@@ -527,7 +529,7 @@ export function Hero() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.4 + i * 0.08, duration: 0.5 }}
-                  className="text-[12px] font-mono font-semibold text-text-secondary hover:text-accent transition-colors duration-300 cursor-default whitespace-nowrap tracking-wide"
+                  className="text-[12px] font-mono font-semibold text-slate-700 hover:text-accent transition-colors duration-300 cursor-default whitespace-nowrap tracking-wide"
                 >
                   {tech}
                 </motion.span>
@@ -549,7 +551,7 @@ export function Hero() {
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-4 h-4 text-[#d4a373]/60" />
+          <ChevronDown className="w-4 h-4 text-slate-400" />
         </motion.div>
       </motion.div>
     </section>

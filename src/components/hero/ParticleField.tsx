@@ -16,7 +16,7 @@ interface ParticleFieldProps {
 export function ParticleField({
   className,
   particleCount = 2000,
-  color = "#d4a373",
+  color = "#d97706",
   size = 1.5,
   speed = 0.1,
   interactive = true,
@@ -47,6 +47,7 @@ export function ParticleField({
       antialias: true,
       powerPreference: "high-performance",
     });
+    renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     rendererRef.current = renderer;
 
@@ -239,11 +240,11 @@ export function SystemMap({
   const timeRef = React.useRef(0);
 
   const defaultNodes: NodeData[] = [
-    { id: "inference", label: "INFERENCE", position: [0, 0.8, 0], color: "#d4a373", metric: "12ms", status: "nominal", connections: ["vision", "robotics", "infrastructure"] },
+    { id: "inference", label: "INFERENCE", position: [0, 0.8, 0], color: "#b45309", metric: "12ms", status: "nominal", connections: ["vision", "robotics", "infrastructure"] },
     { id: "vision", label: "VISION", position: [-0.8, 0, 0.5], color: "#10b981", metric: "41 FPS", status: "nominal", connections: ["inference", "infrastructure"] },
-    { id: "robotics", label: "ROBOTICS", position: [0.8, 0, -0.5], color: "#c68642", metric: "76 FLEET", status: "nominal", connections: ["inference", "infrastructure"] },
-    { id: "infrastructure", label: "INFRASTRUCTURE", position: [0, -0.8, 0], color: "#b87333", metric: "99.98%", status: "nominal", connections: ["inference", "vision", "robotics", "security"] },
-    { id: "security", label: "SECURITY", position: [0, 0, 0.9], color: "#e5a950", metric: "ACTIVE", status: "nominal", connections: ["infrastructure"] },
+    { id: "robotics", label: "ROBOTICS", position: [0.8, 0, -0.5], color: "#d97706", metric: "76 FLEET", status: "nominal", connections: ["inference", "infrastructure"] },
+    { id: "infrastructure", label: "INFRASTRUCTURE", position: [0, -0.8, 0], color: "#78350f", metric: "99.98%", status: "nominal", connections: ["inference", "vision", "robotics", "security"] },
+    { id: "security", label: "SECURITY", position: [0, 0, 0.9], color: "#f59e0b", metric: "ACTIVE", status: "nominal", connections: ["infrastructure"] },
   ];
 
   React.useEffect(() => {
@@ -502,11 +503,11 @@ export function SystemMap({
 }
 
 const DEFAULT_NODES: NodeData[] = [
-  { id: "inference", label: "INFERENCE", position: [0, 0.8, 0], color: "#d4a373", metric: "12ms P99", status: "nominal", connections: ["vision", "robotics", "infrastructure"] },
+  { id: "inference", label: "INFERENCE", position: [0, 0.8, 0], color: "#b45309", metric: "12ms P99", status: "nominal", connections: ["vision", "robotics", "infrastructure"] },
   { id: "vision", label: "VISION", position: [-0.8, 0, 0.5], color: "#10b981", metric: "41 FPS", status: "nominal", connections: ["inference", "infrastructure"] },
-  { id: "robotics", label: "ROBOTICS", position: [0.8, 0, -0.5], color: "#c68642", metric: "76 FLEET", status: "nominal", connections: ["inference", "infrastructure"] },
-  { id: "infrastructure", label: "INFRASTRUCTURE", position: [0, -0.8, 0], color: "#b87333", metric: "99.98%", status: "nominal", connections: ["inference", "vision", "robotics", "security"] },
-  { id: "security", label: "SECURITY", position: [0, 0, 0.9], color: "#e5a950", metric: "ACTIVE", status: "nominal", connections: ["infrastructure"] },
+  { id: "robotics", label: "ROBOTICS", position: [0.8, 0, -0.5], color: "#d97706", metric: "76 FLEET", status: "nominal", connections: ["inference", "infrastructure"] },
+  { id: "infrastructure", label: "INFRASTRUCTURE", position: [0, -0.8, 0], color: "#78350f", metric: "99.98%", status: "nominal", connections: ["inference", "vision", "robotics", "security"] },
+  { id: "security", label: "SECURITY", position: [0, 0, 0.9], color: "#f59e0b", metric: "ACTIVE", status: "nominal", connections: ["infrastructure"] },
 ];
 
 export function VariableFontDisplay({

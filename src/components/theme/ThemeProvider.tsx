@@ -19,39 +19,39 @@ const ThemeContext = React.createContext<ThemeContextType>({
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = React.useState<Theme>("dark");
+  const [theme, setThemeState] = React.useState<Theme>("light");
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
-    // Permanently ensure dark theme
-    localStorage.setItem("nouvx-theme", "dark");
+    // Set light theme as default
+    localStorage.setItem("nouvx-theme", "light");
     const root = document.documentElement;
-    root.classList.remove("light");
-    root.classList.add("dark");
-    root.setAttribute("data-theme", "dark");
-    setThemeState("dark");
+    root.classList.remove("dark");
+    root.classList.add("light");
+    root.setAttribute("data-theme", "light");
+    setThemeState("light");
     setMounted(true);
   }, []);
 
   const applyTheme = (t: Theme) => {
     const root = document.documentElement;
-    root.classList.add("dark");
-    root.classList.remove("light");
-    root.setAttribute("data-theme", "dark");
+    root.classList.add("light");
+    root.classList.remove("dark");
+    root.setAttribute("data-theme", "light");
   };
 
   const setTheme = (_newTheme: Theme) => {
-    setThemeState("dark");
-    localStorage.setItem("nouvx-theme", "dark");
-    applyTheme("dark");
+    setThemeState("light");
+    localStorage.setItem("nouvx-theme", "light");
+    applyTheme("light");
   };
 
   const toggleTheme = () => {
-    // No-op: Dark mode only
+    // White / light theme
   };
 
   return (
-    <ThemeContext.Provider value={{ theme: "dark", toggleTheme, setTheme }}>
+    <ThemeContext.Provider value={{ theme: "light", toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -91,9 +91,9 @@ export function ThemeToggle({ className }: { className?: string }) {
       )}
     >
       {isLight ? (
-        <Moon className="w-4 h-4 text-[#b87333] transition-transform duration-300 rotate-0 hover:-rotate-12" />
+        <Moon className="w-4 h-4 text-[#b45309] transition-transform duration-300 rotate-0 hover:-rotate-12" />
       ) : (
-        <Sun className="w-4 h-4 text-[#d4a373] transition-transform duration-300 rotate-0 hover:rotate-45" />
+        <Sun className="w-4 h-4 text-[#d97706] transition-transform duration-300 rotate-0 hover:rotate-45" />
       )}
     </button>
   );

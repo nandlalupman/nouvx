@@ -31,8 +31,8 @@ const LAYERS = [
     name: "DATA ACQUISITION",
     tech: "KAFKA",
     description: "Apache Kafka event streaming platform for high-throughput, fault-tolerant data acquisition and buffering.",
-    color: "#e5a950",
-    bgColor: "rgba(229,169,80,0.15)",
+    color: "#f59e0b",
+    bgColor: "rgba(6,182,212,0.15)",
     icon: Database,
     details: [
       "Platform: Apache Kafka 3.6+",
@@ -49,8 +49,8 @@ const LAYERS = [
     name: "AI PROCESSING LAYER",
     tech: "CUDA",
     description: "GPU-accelerated model execution, feature extraction, and real-time scoring on CUDA cores.",
-    color: "#d4a373",
-    bgColor: "rgba(212,163,115,0.15)",
+    color: "#b45309",
+    bgColor: "rgba(180,83,9,0.15)",
     icon: Cpu,
     details: [
       "Compute: NVIDIA H100/A100/T4",
@@ -85,8 +85,8 @@ const LAYERS = [
     name: "INFERENCE ENGINE",
     tech: "FASTAPI",
     description: "Low-latency inference serving with FastAPI, model registry, and automated scaling on Kubernetes.",
-    color: "#c68642",
-    bgColor: "rgba(198,134,66,0.15)",
+    color: "#d97706",
+    bgColor: "rgba(217,119,6,0.15)",
     icon: Server,
     details: [
       "Serving: FastAPI, Triton, vLLM",
@@ -103,8 +103,8 @@ const LAYERS = [
     name: "CLOUD INFRASTRUCTURE",
     tech: "K8S",
     description: "Kubernetes-native distributed infrastructure with multi-region deployments and autoscaling.",
-    color: "#b87333",
-    bgColor: "rgba(184,115,51,0.15)",
+    color: "#9a3412",
+    bgColor: "rgba(154,52,18,0.15)",
     icon: Layers,
     details: [
       "Orchestration: EKS/GKE/AKS + self-hosted",
@@ -121,8 +121,8 @@ const LAYERS = [
     name: "REAL-TIME DASHBOARD",
     tech: "WEBSOCKET",
     description: "WebSocket-powered real-time operational dashboards with sub-100ms update latency.",
-    color: "#e2b17a",
-    bgColor: "rgba(226,177,122,0.15)",
+    color: "#78350f",
+    bgColor: "rgba(120,53,15,0.15)",
     icon: Network,
     details: [
       "Transport: WebSocket, Server-Sent Events",
@@ -139,8 +139,8 @@ const LAYERS = [
     name: "ALERT & AUTOMATION",
     tech: "RULES",
     description: "Rule-based alerting and automation engine with human-in-the-loop escalation policies.",
-    color: "#ecdcc9",
-    bgColor: "rgba(236,220,201,0.15)",
+    color: "#e0e7ff",
+    bgColor: "rgba(224,231,255,0.15)",
     icon: Shield,
     details: [
       "Engine: Custom rule engine + CEL",
@@ -180,8 +180,8 @@ export function ArchitectureSection() {
   };
 
   return (
-    <section id="architecture" className="py-16 lg:py-20 bg-bg-primary relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--accent-dim)_0%,_transparent_50%)] pointer-events-none" />
+    <section id="architecture" className="py-16 lg:py-20 bg-white border-b border-slate-200 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(79,70,229,0.03)_0%,transparent_50%)] pointer-events-none" />
       
       <div className="section-container relative z-10">
         <motion.div
@@ -432,8 +432,8 @@ function ArchitectureCanvas({
       const gradient = ctx.createLinearGradient(start.x, start.y, end.x, end.y);
       const fromLayer = layers.find(l => l.id === from);
       const toLayer = layers[to];
-      gradient.addColorStop(0, fromLayer?.color || "#d4a373");
-      gradient.addColorStop(1, toLayer?.color || "#d4a373");
+      gradient.addColorStop(0, fromLayer?.color || "#b45309");
+      gradient.addColorStop(1, toLayer?.color || "#b45309");
       
       ctx.strokeStyle = gradient;
       ctx.lineWidth = 1.5;
@@ -447,8 +447,8 @@ function ArchitectureCanvas({
       
       ctx.beginPath();
       ctx.arc(particleX, particleY, 3, 0, Math.PI * 2);
-      ctx.fillStyle = toLayer?.color || "#d4a373";
-      ctx.shadowColor = toLayer?.color || "#d4a373";
+      ctx.fillStyle = toLayer?.color || "#b45309";
+      ctx.shadowColor = toLayer?.color || "#b45309";
       ctx.shadowBlur = 10;
       ctx.fill();
       ctx.shadowBlur = 0;
@@ -500,7 +500,7 @@ function ArchitectureCanvas({
         ctx.fillText(layer.name, pos.x, pos.y - size - 8);
         
         ctx.font = "9px 'JetBrains Mono', monospace";
-        ctx.fillStyle = "#e2b17a";
+        ctx.fillStyle = "#d97706";
         ctx.fillText(`[${layer.tech}]`, pos.x, pos.y - size - 18);
       });
 

@@ -1,82 +1,91 @@
 @import "tailwindcss";
 
 /* ============================================================
-   NOUVX — Luxury Tech Design System
-   Obsidian Espresso × Warm Champagne Beige × Radiant Bronze × High-Contrast Visibility
-   (NO Red, NO Pink — Sophisticated Beige & Brown Palette)
+   NOUVX — Ultra-Premium White / Light Design System
+   Sleek Tech White × Obsidian × Royal Indigo × Precision Slate
    ============================================================ */
 
 :root {
-  /* ── Deep Obsidian Espresso Backgrounds ── */
-  --bg-primary:    #0a0807;
-  --bg-secondary:  #100d0b;
-  --bg-tertiary:   #181310;
-  --bg-card:       #14100d;
-  --bg-elevated:   #1e1713;
-  --bg-overlay:    #0a0807;
+  /* ── Clean Bright White & Slate Backgrounds ── */
+  --bg-primary:    #ffffff;
+  --bg-secondary:  #f8fafc;
+  --bg-tertiary:   #f1f5f9;
+  --bg-card:       #ffffff;
+  --bg-elevated:   #ffffff;
+  --bg-overlay:    rgba(255, 255, 255, 0.95);
 
-  /* ── Precision Warm Bronze Borders (High Visibility) ── */
-  --border:         #382d24;
-  --border-bright:  #544235;
-  --border-accent:  rgba(212, 163, 115, 0.55);
-  --border-glow:    rgba(212, 163, 115, 0.30);
+  /* ── Precision Slate Borders (Clean, Crisp, Razor-Sharp) ── */
+  --border:         #e2e8f0;
+  --border-bright:  #cbd5e1;
+  --border-accent:  rgba(180, 83, 9, 0.45);
+  --border-glow:    rgba(217, 119, 6, 0.20);
 
-  /* ── Primary Accent — Warm Champagne Gold / Beige ── */
-  --accent-primary: #d4a373;
-  --accent-bright:  #e2b17a;
-  --accent-soft:    #c5905d;
-  --accent-dim:     rgba(212, 163, 115, 0.12);
-  --accent-muted:   rgba(212, 163, 115, 0.28);
-  --accent-glow:    rgba(212, 163, 115, 0.40);
-  --accent-halo:    rgba(212, 163, 115, 0.08);
+  /* ── Upgraded Primary Accent — Warm Burnished Bronze & Cognac Amber ── */
+  --accent-primary: #b45309;
+  --accent-bright:  #d97706;
+  --accent-soft:    #78350f;
+  --accent-dim:     rgba(180, 83, 9, 0.08);
+  --accent-muted:   rgba(180, 83, 9, 0.18);
+  --accent-glow:    rgba(217, 119, 6, 0.28);
+  --accent-halo:    rgba(180, 83, 9, 0.05);
 
-  /* ── Secondary Accent — Radiant Bronze / Caramel ── */
-  --indigo:         #b87333;
-  --indigo-bright:  #c68642;
-  --indigo-dim:     rgba(184, 115, 51, 0.12);
-  --indigo-glow:    rgba(184, 115, 51, 0.32);
+  /* ── Warm Dusk & Editorial Cream Luxury Palette ── */
+  --dusk-amber:      #d97706;
+  --dusk-amber-bright:#f59e0b;
+  --dusk-amber-dim:  rgba(217, 119, 6, 0.08);
+  --dusk-amber-glow: rgba(217, 119, 6, 0.25);
+  --dusk-cream:      #faf6f0;
+  --dusk-cream-subtle:#f5efe6;
+  --dusk-border:     #e8dfd5;
+  --dusk-text:       #78350f;
+  --dusk-text-muted: #8c7e72;
 
-  /* ── Warm Amber / Ochre ── */
-  --emerald:        #e5a950;
-  --emerald-bright: #f0be6b;
-  --emerald-dim:    rgba(229, 169, 80, 0.12);
-  --emerald-glow:   rgba(229, 169, 80, 0.28);
+  /* ── Secondary Accent — Saddle Bronze ── */
+  --indigo:         #78350f;
+  --indigo-bright:  #b45309;
+  --indigo-dim:     rgba(120, 53, 15, 0.08);
+  --indigo-glow:    rgba(180, 83, 9, 0.22);
 
-  /* ── Deep Terracotta / Rust (Replaces Red/Pink cleanly) ── */
-  --rose:           #c2653c;
-  --rose-dim:       rgba(194, 101, 60, 0.12);
-  --rose-glow:      rgba(194, 101, 60, 0.28);
+  /* ── Vivid Emerald ── */
+  --emerald:        #059669;
+  --emerald-bright: #10b981;
+  --emerald-dim:    rgba(5, 150, 105, 0.08);
+  --emerald-glow:   rgba(16, 185, 129, 0.20);
 
-  /* ── Soft Ivory / Champagne Cream ── */
-  --sky:            #ecdcc9;
-  --sky-dim:        rgba(236, 220, 201, 0.10);
+  /* ── Vivid Rose / Amber ── */
+  --rose:           #e11d48;
+  --rose-dim:       rgba(225, 29, 72, 0.08);
+  --rose-glow:      rgba(225, 29, 72, 0.20);
+  --sky:            #b45309;
+  --sky-dim:        rgba(180, 83, 9, 0.08);
 
   /* ── Status ── */
-  --success:   #10b981;
-  --warning:   #e5a950;
-  --error:     #c25736;
-  --info:      #d4a373;
+  --success:   #059669;
+  --warning:   #d97706;
+  --error:     #dc2626;
+  --info:      #b45309;
 
-  /* ── Domain Colors (Warm Studio Tech Stack) ── */
-  --inference:      #d4a373;
-  --vision:         #10b981;
-  --robotics:       #c68642;
-  --infrastructure: #b87333;
-  --security:       #c2653c;
-  --automation:     #ecdcc9;
+  /* ── Domain Colors (Tech Stack) ── */
+  --inference:      #b45309;
+  --vision:         #059669;
+  --robotics:       #d97706;
+  --infrastructure: #78350f;
+  --security:       #e11d48;
+  --automation:     #9a3412;
 
-  /* ── High-Contrast Crystal-Clear Visibility Typography ── */
-  --text-primary:   #ffffff;
-  --text-secondary: #ded7cf;
-  --text-muted:     #b8aca0;
-  --text-dim:       #807266;
+  /* ── High-Contrast Crystal-Clear Typography ── */
+  --text-primary:   #09090b;
+  --text-secondary: #334155;
+  --text-muted:     #64748b;
+  --text-dim:       #94a3b8;
 
-  /* ── Radiant Warm Gradients ── */
-  --gradient-hero:    linear-gradient(135deg, #f3ece2 0%, #d4a373 50%, #c68642 100%);
-  --gradient-hero-2:  linear-gradient(135deg, #d4a373 0%, #10b981 100%);
-  --gradient-card:    linear-gradient(145deg, rgba(212, 163, 115, 0.05) 0%, rgba(198, 134, 66, 0.02) 100%);
-  --gradient-border:  linear-gradient(135deg, #d4a373, #c68642, #b87333);
-  --gradient-glow:    radial-gradient(ellipse at center, rgba(212, 163, 115, 0.22) 0%, transparent 70%);
+  /* ── Luxury Warm Brown & Bronze Gradients ── */
+  --gradient-hero:    linear-gradient(135deg, #09090b 0%, #451a03 38%, #9a3412 68%, #d97706 100%);
+  --gradient-dusk:    linear-gradient(135deg, #1c1917 0%, #78350f 50%, #b45309 100%);
+  --gradient-hero-2:  linear-gradient(135deg, #09090b 0%, #78350f 70%, #d97706 100%);
+  --gradient-card:    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --gradient-border:  linear-gradient(135deg, #b45309, #d97706, #9a3412);
+  --gradient-glow:    radial-gradient(ellipse at center, rgba(180, 83, 9, 0.15) 0%, transparent 70%);
 }
 
 /* ── Tailwind Token Bridge ── */
@@ -138,27 +147,26 @@
     color: var(--text-primary);
     font-family: var(--font-ui), system-ui, sans-serif;
     overflow-x: hidden;
-    /* Warm Champagne & Bronze Ambient Glow on deep obsidian espresso */
+    /* Soft subtle ambient lighting on clean white */
     background-image:
-      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(212, 163, 115, 0.16) 0%, transparent 65%),
-      radial-gradient(ellipse 55% 45% at 85% 80%,  rgba(198, 134, 66, 0.10) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 40% at 15% 45%,  rgba(229, 169, 80, 0.08) 0%, transparent 60%);
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(180, 83, 9, 0.035) 0%, transparent 60%),
+      radial-gradient(ellipse 55% 40% at 90% 65%,  rgba(217, 119, 6, 0.02) 0%, transparent 60%);
     background-attachment: fixed;
   }
 
   ::selection {
-    background: rgba(212, 163, 115, 0.35);
-    color: #ffffff;
+    background: rgba(180, 83, 9, 0.20);
+    color: #09090b;
   }
 
-  /* Warm Bronze Scrollbar */
-  ::-webkit-scrollbar        { width: 5px; height: 5px; }
+  /* Refined Slate Scrollbar */
+  ::-webkit-scrollbar        { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track  { background: var(--bg-secondary); }
   ::-webkit-scrollbar-thumb  {
-    background: linear-gradient(180deg, #d4a373, #b87333);
+    background: #cbd5e1;
     border-radius: 9999px;
   }
-  ::-webkit-scrollbar-thumb:hover { background: #e2b17a; }
+  ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
   h1,h2,h3,h4,h5,h6 {
     font-family: var(--font-display), system-ui, sans-serif;
@@ -199,7 +207,7 @@
 
   .text-balance { text-wrap: balance; }
 
-  /* ── Gradient text (Champagne Ivory → Warm Gold Beige → Bronze) ── */
+  /* ── Gradient text (Obsidian → Royal Indigo → Violet) ── */
   .gradient-text {
     background: var(--gradient-hero);
     -webkit-background-clip: text;
@@ -214,29 +222,29 @@
     background-clip: text;
   }
 
-  /* ── Warm Smoked Glassmorphism ── */
+  /* ── Ultra-Clean Glassmorphism on White ── */
   .glass {
-    background: rgba(22, 17, 14, 0.85);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(212, 163, 115, 0.22);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(226, 232, 240, 0.85);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.08);
   }
 
   .glass-light {
-    background: rgba(26, 20, 16, 0.70);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(212, 163, 115, 0.15);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(226, 232, 240, 0.75);
   }
 
-  /* ── Warm Smoked Obsidian Card ── */
+  /* ── Premium Card ── */
   .card-premium {
     background: var(--bg-card);
-    border: 1px solid rgba(212, 163, 115, 0.16);
+    border: 1px solid var(--border);
     border-radius: 1rem;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px -4px rgba(0, 0, 0, 0.04);
     transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   }
   .card-premium::before {
@@ -248,20 +256,20 @@
     border-radius: inherit;
   }
   .card-premium:hover {
-    border-color: rgba(212, 163, 115, 0.55);
+    border-color: rgba(79, 70, 229, 0.35);
     box-shadow:
-      0 0 0 1px rgba(212, 163, 115, 0.30),
-      0 20px 50px rgba(0, 0, 0, 0.85),
-      0 0 35px rgba(212, 163, 115, 0.20);
-    transform: translateY(-4px);
+      0 0 0 1px rgba(79, 70, 229, 0.20),
+      0 16px 36px -8px rgba(0, 0, 0, 0.08),
+      0 4px 14px rgba(79, 70, 229, 0.06);
+    transform: translateY(-3px);
   }
 
   /* ── Glow effects ── */
   .glow-accent {
     box-shadow:
-      0 0 24px var(--accent-glow),
-      0 0 60px var(--accent-dim),
-      inset 0 1px 0 rgba(212, 163, 115, 0.35);
+      0 0 20px var(--accent-glow),
+      0 0 40px var(--accent-dim),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 
   /* ── Gradient border ── */
@@ -288,30 +296,30 @@
     align-items: center;
     padding: 0.25rem 0.625rem;
     border-radius: 0.375rem;
-    background: #1c1613;
-    border: 1px solid #33261e;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
     font-size: 0.6875rem;
     font-family: var(--font-mono);
-    color: #d6cfc7;
+    color: #334155;
     letter-spacing: 0.04em;
     transition: color 0.2s, border-color 0.2s, background-color 0.2s;
   }
   .tag:hover {
-    color: #e2b17a;
-    border-color: rgba(212, 163, 115, 0.5);
-    background: rgba(212, 163, 115, 0.12);
+    color: #4f46e5;
+    border-color: rgba(79, 70, 229, 0.3);
+    background: rgba(79, 70, 229, 0.06);
   }
 
-  /* ── Warm Champagne Live Dot badge ── */
+  /* ── Live Dot badge ── */
   .dot-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.375rem;
     padding: 0.35rem 0.85rem;
     border-radius: 9999px;
-    background: rgba(212, 163, 115, 0.14);
-    border: 1px solid rgba(212, 163, 115, 0.38);
-    color: #e2b17a;
+    background: rgba(79, 70, 229, 0.07);
+    border: 1px solid rgba(79, 70, 229, 0.22);
+    color: #4338ca;
     font-size: 0.6875rem;
     font-family: var(--font-mono);
     letter-spacing: 0.08em;
@@ -323,7 +331,7 @@
   .nav-link {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #d6cfc7;
+    color: #475569;
     letter-spacing: 0.01em;
     transition: color 0.2s ease;
     position: relative;
@@ -333,39 +341,39 @@
     position: absolute;
     bottom: -3px; left: 0; right: 0;
     height: 2px;
-    background: #d4a373;
+    background: #4f46e5;
     border-radius: 1px;
     transform: scaleX(0);
     transition: transform 0.25s ease;
     transform-origin: left;
   }
-  .nav-link:hover { color: #ffffff; }
+  .nav-link:hover { color: #09090b; }
   .nav-link:hover::after { transform: scaleX(1); }
 
   /* ── Stat icon wrap ── */
   .stat-icon-wrap {
     width: 2.75rem; height: 2.75rem;
     border-radius: 0.75rem;
-    background: #191411;
-    border: 1px solid #362920;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
     transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   }
   .stat-icon-wrap:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 163, 115, 0.25);
-    border-color: rgba(212, 163, 115, 0.5);
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.15);
+    border-color: rgba(79, 70, 229, 0.35);
   }
 
   /* ── Input ── */
   .input {
-    background: #181310;
-    border: 1px solid #33261e;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
     border-radius: 0.5rem;
     padding: 0.5rem 0.75rem;
-    color: #ffffff;
+    color: #09090b;
     font-family: var(--font-mono);
     font-size: 0.875rem;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -373,10 +381,10 @@
   }
   .input:focus {
     outline: none;
-    border-color: #d4a373;
-    box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.18);
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
   }
-  .input::placeholder { color: #9a8c80; }
+  .input::placeholder { color: #94a3b8; }
 
   /* ── Metric glow number ── */
   .metric-value {
@@ -388,19 +396,65 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  /* ── Ultra-Modern AI Button ── */
+  .btn-ai {
+    position: relative;
+    background: #09090b;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      0 0 0 1px rgba(180, 83, 9, 0.35),
+      0 4px 18px -2px rgba(180, 83, 9, 0.32),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+  .btn-ai:hover {
+    border-color: rgba(245, 158, 11, 0.55);
+    box-shadow:
+      0 0 0 1px rgba(245, 158, 11, 0.45),
+      0 8px 32px -4px rgba(180, 83, 9, 0.45),
+      0 2px 14px rgba(245, 158, 11, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transform: translateY(-1.5px) scale(1.015);
+  }
+  .btn-ai:active {
+    transform: translateY(0.5px) scale(0.985);
+  }
+
+  /* ── Warm Cream / Dusk Section Utilities ── */
+  .section-cream {
+    background-color: #faf6f0;
+    border-top: 1px solid #e8dfd5;
+    border-bottom: 1px solid #e8dfd5;
+  }
+  .section-cream-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e8dfd5;
+    box-shadow: 0 4px 20px -4px rgba(120, 53, 15, 0.05);
+    transition: all 0.3s ease;
+  }
+  .section-cream-card:hover {
+    border-color: rgba(180, 83, 9, 0.45);
+    box-shadow: 0 16px 36px -6px rgba(180, 83, 9, 0.12);
+    transform: translateY(-3px);
+  }
 }
 
 /* ============================================================
    KEYFRAME ANIMATIONS
    ============================================================ */
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 3px currentColor); }
-  50%       { opacity: 1;   filter: drop-shadow(0 0 12px currentColor); }
+  0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 3px currentColor); }
+  50%       { opacity: 1;   filter: drop-shadow(0 0 10px currentColor); }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0);    }
-  50%       { transform: translateY(-8px);}
+  50%       { transform: translateY(-6px);}
 }
 
 @keyframes rotate-slow {
@@ -420,23 +474,22 @@
 .animate-data-flow   { animation: data-flow   1.8s linear     infinite; }
 
 /* ============================================================
-   WARM MATRIX GRID TEXTURES
+   GRID TEXTURES
    ============================================================ */
 
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212, 163, 115, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(226, 232, 240, 0.9), transparent);
 }
 
 .grid-texture {
   background-image:
-    linear-gradient(rgba(212, 163, 115, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212, 163, 115, 0.05) 1px, transparent 1px);
-  background-size: 54px 54px;
+    radial-gradient(circle, #cbd5e1 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
 }
 
 /* ============================================================
-   MARQUEE ANIMATION (Nvidia Feature Ticker)
+   MARQUEE ANIMATION
    ============================================================ */
 @keyframes marquee {
   0%   { transform: translateX(0%); }

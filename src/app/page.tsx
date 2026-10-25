@@ -10,7 +10,7 @@ import { Footer } from "@/components/footer/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-bg-primary">
+    <div className="flex flex-col min-h-screen bg-white text-slate-900">
       <Hero />
       <NvidiaFeatures />
       <PlatformsSection />

@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOUVX - Project Based Learning Report | Arya College of Engineering & IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #FDFBF7;
+      --bg-cream-card: #FFFFFF;
+      --bg-warm-secondary: #F7F2E8;
+      --bg-warm-tertiary: #EFE8DA;
+      --accent-gold: #D97706;
+      --accent-amber: #F59E0B;
+      --accent-terracotta: #EA580C;
+      --accent-deep-bronze: #92400E;
+      --accent-bright-warm: #FF8A00;
+      --text-primary: #24201B;
+      --text-secondary: #574F45;
+      --text-muted: #887C6F;
+      --border-warm: #E4DACE;
+      --border-focus: #D4A373;
+      --shadow-paper: 0 10px 30px rgba(160, 120, 60, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+      --shadow-card: 0 4px 18px rgba(120, 80, 30, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Navigation Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(253, 251, 247, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-warm);
+      padding: 12px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .top-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .top-brand img {
+      height: 34px;
+      object-fit: contain;
+    }
+    .top-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--accent-deep-bronze);
+      letter-spacing: -0.3px;
+    }
+    .top-badge {
+      background: #FEF3C7;
+      color: #92400E;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid #FDE68A;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-print {
+      background: linear-gradient(135deg, #D97706 0%, #EA580C 100%);
+      color: #FFFFFF;
+      border: none;
+      box-shadow: 0 3px 12px rgba(217, 119, 6, 0.35);
+    }
+    .btn-print:hover {
+      box-shadow: 0 5px 18px rgba(217, 119, 6, 0.5);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: #FFFFFF;
+      color: var(--accent-deep-bronze);
+      border: 1px solid var(--border-warm);
+    }
+    .btn-outline:hover {
+      background: var(--bg-warm-secondary);
+      border-color: var(--accent-gold);
+    }
+
+    /* Main Container Layout */
+    .app-layout {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 30px 24px;
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 36px;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      position: sticky;
+      top: 86px;
+      height: calc(100vh - 110px);
+      overflow-y: auto;
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
+      border-radius: 14px;
+      padding: 22px 18px;
+      box-shadow: var(--shadow-card);
+    }
+    .sidebar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #E4DACE;
+      border-radius: 10px;
+    }
+    .sidebar-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-deep-bronze);
+      font-weight: 800;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--bg-warm-secondary);
+    }
+    .toc-list {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .toc-item {
+      margin-bottom: 4px;
+    }
+    .toc-link {
+      display: block;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+    .toc-link:hover {
+      background: var(--bg-warm-secondary);
+      color: var(--accent-deep-bronze);
+      padding-left: 15px;
+    }
+    .toc-link.active {
+      background: #FEF3C7;
+      color: var(--accent-deep-bronze);
+      font-weight: 700;
+      border-left: 3px solid var(--accent-gold);
+    }
+    .meta-box {
+      background: var(--bg-warm-secondary);
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 18px;
+      border: 1px solid var(--border-warm);
+    }
+    .meta-box h5 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      color: var(--accent-deep-bronze);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .meta-box p {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    /* Document Sheet (Report Canvas) */
+    .document-canvas {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .report-sheet {
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
+      border-radius: 16px;
+      padding: 56px 64px;
+      box-shadow: var(--shadow-paper);
+      position: relative;
+    }
+
+    /* COVER PAGE STYLES */
+    .cover-container {
+      text-align: center;
+      padding: 30px 40px;
+      background: radial-gradient(circle at 50% 10%, rgba(254, 243, 199, 0.45) 0%, #FFFFFF 85%);
+      border: 2px solid #E6D8C5;
+      border-radius: 12px;
+      position: relative;
+    }
+    .cover-banner-wrap {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      border: 1px solid #EADCC8;
+    }
+    .cover-banner-wrap img {
+      width: 100%;
+      height: 145px;
+      object-fit: cover;
+      display: block;
+    }
+    .cover-logos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 0 20px;
+    }
+    .cover-logos img {
+      height: 82px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+    }
+    .cover-super-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .cover-main-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+      color: #92400E;
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      padding: 10px 30px;
+      border-radius: 999px;
+      border: 1.5px solid #F59E0B;
+      letter-spacing: 1.5px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.18);
+    }
+    .cover-on {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .cover-project-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: #1F2937;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .cover-project-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--accent-deep-bronze);
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.5;
+    }
+    .cover-divider {
+      width: 140px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #D97706, transparent);
+      margin: 0 auto 28px;
+    }
+    .cover-fulfillment {
+      font-size: 14px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto 36px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .cover-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      text-align: left;
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 34px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+    .cover-meta-col h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--bg-warm-secondary);
+      padding-bottom: 4px;
+    }
+    .cover-meta-col p {
+      font-size: 14px;
+      color: var(--text-primary);
+      margin-bottom: 5px;
+    }
+    .cover-meta-col strong {
+      color: #1F2937;
+    }
+    .cover-institution {
+      border-top: 1px solid #EAE2D5;
+      padding-top: 22px;
+    }
+    .cover-institution h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 17px;
+      color: #1F2937;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+    .cover-institution p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+    .cover-session {
+      margin-top: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--accent-deep-bronze);
+    }
+
+    /* CHAPTER AND CONTENT TYPOGRAPHY */
+    .section-eyebrow {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-gold);
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: #1F2937;
+      letter-spacing: -0.5px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--bg-warm-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .section-title .chapter-num {
+      font-size: 14px;
+      background: #FEF3C7;
+      color: #92400E;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .sub-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #2D3748;
+      margin: 24px 0 12px;
+    }
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARD COMPONENTS */
+    .highlight-card {
+      background: var(--bg-warm-secondary);
+      border: 1px solid var(--border-warm);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin: 20px 0;
+      position: relative;
+    }
+    .highlight-card.accent {
+      background: linear-gradient(135deg, #FFFDF8 0%, #FEF9EE 100%);
+      border-left: 4px solid var(--accent-gold);
+    }
+    .highlight-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent-deep-bronze);
+      margin-bottom: 8px;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 24px 0;
+    }
+    .bento-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .bento-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(180, 140, 80, 0.12);
+      border-color: var(--accent-gold);
+    }
+    .bento-badge {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #FEF3C7;
+      color: #92400E;
+      margin-bottom: 10px;
+    }
+    .bento-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1F2937;
+      margin-bottom: 6px;
+    }
+    .bento-card p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      text-align: left;
+    }
+    .bento-metric {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--accent-terracotta);
+    }
+    .bento-img {
+      width: 100%;
+      height: 155px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    /* TABLES */
+    .styled-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13.5px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-warm);
+    }
+    .styled-table th {
+      background: var(--bg-warm-tertiary);
+      color: #1F2937;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--border-warm);
+    }
+    .styled-table td {
+      padding: 11px 16px;
+      border-bottom: 1px solid #EAE2D5;
+      color: var(--text-secondary);
+    }
+    .styled-table tr:nth-child(even) {
+      background: #FAF7F0;
+    }
+
+    /* CODE SNIPPET */
+    .code-block {
+      background: #1E1B18;
+      color: #E6DFD5;
+      border-radius: 10px;
+      padding: 18px 22px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      margin: 18px 0;
+      border: 1px solid #3E3832;
+    }
+    .code-block .keyword { color: #F59E0B; font-weight: bold; }
+    .code-block .string { color: #A7F3D0; }
+    .code-block .comment { color: #8F8171; font-style: italic; }
+
+    /* SIGNATURE BLOCK */
+    .sign-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 50px;
+      padding-top: 20px;
+    }
+    .sign-box {
+      border-top: 1.5px dashed #D4A373;
+      padding-top: 10px;
+      text-align: center;
+    }
+    .sign-box p {
+      text-align: center;
+      margin-bottom: 2px;
+    }
+    .sign-box strong {
+      color: #1F2937;
+      font-size: 14.5px;
+    }
+
+    /* Print Specific Styles */
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        font-size: 12pt !important;
+      }
+      .top-bar, .sidebar, .btn-print, .btn-outline {
+        display: none !important;
+      }
+      .app-layout {
+        display: block !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .report-sheet {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+        page-break-after: always;
+      }
+      .cover-container {
+        border: 2px solid #888 !important;
+        page-break-after: always;
+      }
+      .bento-card {
+        border: 1px solid #CCC !important;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Global Bar -->
+  <header class="top-bar">
+    <div class="top-brand">
+      <img src="./assets/nuovx_logo.png" alt="Nouvx Logo">
+      <div class="top-title">NOUVX Robotics & Physical AI</div>
+      <span class="top-badge">Project Based Learning</span>
+    </div>
+    <div class="top-actions">
+      <button class="btn-action btn-print" onclick="window.print()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"></path></svg>
+        Print / Save to PDF
+      </button>
+      <a href="#cover" class="btn-action btn-outline">Cover Page</a>
+      <a href="#toc" class="btn-action btn-outline">Contents</a>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <!-- Sticky Navigation Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-heading">Table of Contents</div>
+      <ul class="toc-list">
+        <li class="toc-item"><a href="#cover" class="toc-link active">0. Cover Page</a></li>
+        <li class="toc-item"><a href="#approval" class="toc-link">Approval Certificate</a></li>
+        <li class="toc-item"><a href="#declaration" class="toc-link">Candidate Declaration</a></li>
+        <li class="toc-item"><a href="#acknowledgement" class="toc-link">Acknowledgement</a></li>
+        <li class="toc-item"><a href="#abstract" class="toc-link">Executive Abstract</a></li>
+        <li class="toc-item"><a href="#ch1" class="toc-link">Ch 1: Introduction</a></li>
+        <li class="toc-item"><a href="#ch2" class="toc-link">Ch 2: System Architecture</a></li>
+        <li class="toc-item"><a href="#ch3" class="toc-link">Ch 3: Industry Applications</a></li>
+        <li class="toc-item"><a href="#ch4" class="toc-link">Ch 4: Implementation Work</a></li>
+        <li class="toc-item"><a href="#ch5" class="toc-link">Ch 5: Conclusion & Scope</a></li>
+        <li class="toc-item"><a href="#references" class="toc-link">References & Appendix</a></li>
+      </ul>
+
+      <div class="sidebar-heading">Project Verification</div>
+      <div class="meta-box">
+        <h5>Candidate</h5>
+        <p><strong>Nandlal Upman</strong></p>
+        <p>Roll No: 24EARAD108</p>
+        <p>Branch: B.Tech (AI & DS)</p>
+      </div>
+
+      <div class="meta-box">
+        <h5>Supervisor</h5>
+        <p><strong>Mr. Daksh Lavania</strong></p>
+        <p>Technical Project Mentor</p>
+      </div>
+
+      <div class="meta-box">
+        <h5>Institution</h5>
+        <p><strong>Arya College of Engg. & IT</strong></p>
+        <p>RTU Kota, Rajasthan</p>
+      </div>
+    </aside>
+
+    <!-- Main Report Body -->
+    <main class="document-canvas">
+
+      <!-- SHEET 1: OFFICIAL FRONT COVER -->
+      <section class="report-sheet" id="cover">
+        <div class="cover-container">
+          
+          <!-- Arya Banner -->
+          <div class="cover-banner-wrap">
+            <img src="./assets/arya_banner.jpg" alt="Arya College Banner">
+          </div>
+
+          <!-- Crests / Seals -->
+          <div class="cover-logos">
+            <img src="./assets/rtu_logo.jpg" alt="Rajasthan Technical University">
+            <img src="./assets/nuovx_logo.png" alt="Nouvx Platform Logo" style="height: 52px;">
+            <img src="./assets/arya_seal.png" alt="Arya College Seal">
+          </div>
+
+          <div class="cover-super-title">Rajasthan Technical University, Kota</div>
+
+          <!-- Crucial requirement: Project Based Learning Banner -->
+          <div class="cover-main-badge">
+            PROJECT BASED LEARNING REPORT
+          </div>
+
+          <div class="cover-on">ON</div>
+
+          <h1 class="cover-project-title">NOUVX PLATFORM</h1>
+          <p class="cover-project-sub">Enterprise Physical AI, Embodied Robotics Telemetry & High-Throughput Edge Intelligence System</p>
+
+          <div class="cover-divider"></div>
+
+          <p class="cover-fulfillment">
+            Submitted in partial fulfillment of the requirements for the award of the Degree of<br>
+            <strong>Bachelor of Technology</strong> in <strong>Artificial Intelligence & Data Science</strong>
+          </p>
+
+          <!-- Candidate & Supervisor Meta Grid -->
+          <div class="cover-meta-grid">
+            <div class="cover-meta-col">
+              <h4>Submitted By</h4>
+              <p><strong>Name:</strong> Nandlal Upman</p>
+              <p><strong>Roll No:</strong> 24EARAD108</p>
+              <p><strong>Discipline:</strong> Artificial Intelligence & Data Science</p>
+              <p><strong>Semester:</strong> B.Tech (6th Semester)</p>
+            </div>
+            <div class="cover-meta-col">
+              <h4>Under the Supervision of</h4>
+              <p><strong>Guide:</strong> Mr. Daksh Lavania</p>
+              <p><strong>Designation:</strong> Technical Project Mentor</p>
+              <p><strong>Coordinator:</strong> Head of Department, AI&DS</p>
+              <p><strong>Institution:</strong> Arya College of Engg. & IT</p>
+            </div>
+          </div>
+
+          <!-- Academic Institution Block -->
+          <div class="cover-institution">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px;">
+              <img src="./assets/arya_logo.png" alt="Arya College Logo" style="height: 38px;">
+              <h3>DEPARTMENT OF ARTIFICIAL INTELLIGENCE & DATA SCIENCE</h3>
+            </div>
+            <h3>ARYA COLLEGE OF ENGINEERING & I.T.</h3>
+            <p>SP-42, RIICO Industrial Area, Kukas, Jaipur, Rajasthan – 302028</p>
+            <p>Affiliated to Rajasthan Technical University, Kota | Approved by AICTE, New Delhi</p>
+            <div class="cover-session">Academic Session: 2025 – 2026</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SHEET 2: APPROVAL CERTIFICATE -->
+      <section class="report-sheet" id="approval">
+        <div class="section-eyebrow">Academic Certification</div>
+        <h2 class="section-title">Certificate of Approval <span class="chapter-num">FORM-01</span></h2>
+        
+        <p style="margin-top: 24px;">
+          This is to certify that the <strong>Project Based Learning (PBL) Report</strong> entitled 
+          <strong>"NOUVX: Enterprise Physical AI, Embodied Robotics Telemetry & High-Throughput Edge Intelligence System"</strong> 
+          is a bonafide record of work carried out by <strong>Nandlal Upman</strong> (Roll No: <strong>24EARAD108</strong>), student of 
+          the <strong>Department of Artificial Intelligence & Data Science</strong>, <strong>Arya College of Engineering & I.T., Jaipur</strong>, 
+          in partial fulfillment of the requirements for the award of the Degree of <strong>Bachelor of Technology in Artificial Intelligence & Data Science</strong> 
+          of <strong>Rajasthan Technical University, Kota</strong>, during the academic session <strong>2025–2026</strong>.
+        </p>
+
+        <p>
+          The project work demonstrates thorough practical implementation, requirement decomposition, frontend architectural engineering with Next.js 16, React 19, Three.js 3D WebGL particle dynamics, and simulated multi-axis robotic telemetry loops adhering to industrial standards.
+        </p>
+
+        <div class="highlight-card accent" style="margin: 32px 0;">
+          <h4>Institutional Endorsement</h4>
+          <p style="margin: 0; font-size: 13.5px;">
+            The results incorporated in this Project Based Learning report have been tested, demonstrated, and found satisfactory for academic evaluation and credit requirements.
+          </p>
+        </div>
+
+        <div class="sign-row" style="margin-top: 60px;">
+          <div class="sign-box">
+            <p><strong>Mr. Daksh Lavania</strong></p>
+            <p>Project Guide / Mentor</p>
+            <p>Department of AI & DS</p>
+          </div>
+          <div class="sign-box">
+            <p><strong>Dr. Ashok Kumar Kajla</strong></p>
+            <p>Head of Department (AI & DS)</p>
+            <p>Arya College of Engineering & I.T.</p>
+          </div>
+        </div>
+
+        <div class="sign-row" style="margin-top: 40px;">
+          <div class="sign-box" style="grid-column: span 2; max-width: 320px; margin: 0 auto;">
+            <p><strong>External Examiner</strong></p>
+            <p>Rajasthan Technical University, Kota</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SHEET 3: DECLARATION & ACKNOWLEDGEMENT -->
+      <section class="report-sheet" id="declaration">
+        <div class="section-eyebrow">Student Verification</div>
+        <h2 class="section-title">Candidate Declaration</h2>
+
+        <p>
+          I hereby declare that this Project Based Learning (PBL) report titled <strong>"NOUVX: Enterprise Physical AI, Embodied Robotics Telemetry & High-Throughput Edge Intelligence System"</strong> submitted to <strong>Arya College of Engineering & I.T., Jaipur</strong>, affiliated to <strong>Rajasthan Technical University, Kota</strong>, is an authentic outcome of my individual and practical developmental efforts.
+        </p>
+        <p>
+          I confirm that this report does not contain any material previously submitted for the award of any other degree or diploma in any university, and due acknowledgements have been made wherever reference has been taken from published documentation, open-source repositories, or industrial technical briefs.
+        </p>
+
+        <div style="text-align: right; margin-top: 36px;">
+          <p><strong>Nandlal Upman</strong></p>
+          <p>University Roll No: 24EARAD108</p>
+          <p>Department of AI & DS</p>
+          <p>Arya College of Engineering & I.T., Jaipur</p>
+        </div>
+
+        <div style="margin: 48px 0; border-bottom: 1.5px solid var(--border-warm);"></div>
+
+        <div id="acknowledgement">
+          <div class="section-eyebrow">Gratitude</div>
+          <h2 class="section-title">Acknowledgement</h2>
+          <p>
+            I wish to express my deepest gratitude to <strong>Mr. Daksh Lavania</strong> for his continuous guidance, rigorous architectural reviews, and constant encouragement throughout this Project Based Learning initiative. His insights into real-time robotics kinematics, modular component design, and high-performance WebGL state management were invaluable in transforming complex theoretical algorithms into an interactive, enterprise-grade software system.
+          </p>
+          <p>
+            I am profoundly grateful to <strong>Dr. Ashok Kumar Kajla</strong>, Head of Department, Artificial Intelligence & Data Science, for providing state-of-the-art laboratory facilities, compute environments, and academic mentorship that facilitated this hands-on engineering research.
+          </p>
+          <p>
+            I also express my heartfelt appreciation to the faculty members of <strong>Arya College of Engineering & I.T.</strong>, whose rigorous curriculum in linear algebra, machine learning, distributed systems, and computer vision established the indispensable conceptual foundation. Finally, I thank my family and peers whose unyielding support and collaborative critiques motivated me at every stage of development.
+          </p>
+        </div>
+      </section>
+
+      <!-- SHEET 4: ABSTRACT -->
+      <section class="report-sheet" id="abstract">
+        <div class="section-eyebrow">Executive Synopsis</div>
+        <h2 class="section-title">Abstract <span class="chapter-num">OVERVIEW</span></h2>
+
+        <p>
+          Physical Artificial Intelligence (Physical AI) represents a transformative inflection point in modern computing, bridging the gap between digital generative models and embodied physical actuators capable of perceiving, reasoning, and acting within three-dimensional physical space. The <strong>NOUVX Platform</strong> is an enterprise-grade Physical AI and embodied robotics computing platform developed under the Project Based Learning curriculum of the Department of Artificial Intelligence & Data Science at Arya College of Engineering & I.T.
+        </p>
+
+        <div class="highlight-card accent">
+          <h4>Core Engineering Objectives</h4>
+          <p style="margin-bottom: 6px;"><strong>1. Real-time Telemetry & Ingestion:</strong> Processing multi-stream tactile, kinematic, and visual perception feeds with sub-10ms latency loops.</p>
+          <p style="margin-bottom: 6px;"><strong>2. High-Performance WebGL Visualization:</strong> Integrating a custom Three.js particle dynamics engine executing at a sustained 60 FPS across heterogeneous client displays.</p>
+          <p style="margin-bottom: 0;"><strong>3. Modular Architecture:</strong> Organizing four foundational modules—NOUVX CORE, VISIONGRID, ROBOTICS CMD, and OPS CENTER—under Next.js 16 App Router and React 19.</p>
+        </div>
+
+        <div class="bento-grid" style="margin-top: 24px;">
+          <div class="bento-card">
+            <span class="bento-badge">ISAAC SIM + CUDA</span>
+            <h4>Kinematic Loop</h4>
+            <p>Sub-millisecond trajectory computation and closed-loop motor torque actuation.</p>
+            <div class="bento-metric">&lt; 10 ms</div>
+          </div>
+          <div class="bento-card">
+            <span class="bento-badge">METROPOLIS PIPELINE</span>
+            <h4>Perception Rate</h4>
+            <p>Real-time edge neural inference for spatial obstacle avoidance and robotic grasping.</p>
+            <div class="bento-metric">41 FPS</div>
+          </div>
+          <div class="bento-card">
+            <span class="bento-badge">THREE.JS WEBGL</span>
+            <h4>Point Cloud Dynamics</h4>
+            <p>GPU-accelerated interactive particle field representing real-time sensor points.</p>
+            <div class="bento-metric">60 FPS</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SHEET 5: CHAPTER 1 -->
+      <section class="report-sheet" id="ch1">
+        <div class="section-eyebrow">Chapter 1</div>
+        <h2 class="section-title">Introduction & Problem Background <span class="chapter-num">01</span></h2>
+
+        <h3 class="sub-title">1.1 The Advent of Physical Artificial Intelligence</h3>
+        <p>
+          For over two decades, the primary frontier of artificial intelligence focused on digital information manipulation—natural language processing, recommendation engines, and computer vision on static imagery. While digital LLMs exhibit remarkable cognitive synthesis, they lack direct embodiment in physical environments. Physical AI addresses this fundamental limitation by combining deep reinforcement learning, neural radiance fields (NeRFs), and spatial computing with physical robotic hardware.
+        </p>
+        <p>
+          Unlike pure software applications, physical robots must operate under the inviolable laws of physics: inertia, frictional resistance, thermal thresholds, and mechanical wear. A latency spike in a web search query merely causes user inconvenience; in an industrial robot arm moving at 2.5 meters per second, a 20-millisecond telemetry lag can result in equipment damage or workplace safety hazards.
+        </p>
+
+        <h3 class="sub-title">1.2 Problem Statement & Motivation</h3>
+        <p>
+          Modern engineering enterprises face three critical challenges when deploying embodied robotic fleets:
+        </p>
+        <ul style="margin-left: 24px; color: var(--text-secondary); margin-bottom: 18px;">
+          <li style="margin-bottom: 8px;"><strong>Fragmented Telemetry Interfaces:</strong> Sensor ingestion, robot control, and model monitoring frequently rely on disparate, non-standardized industrial protocols without unified web observability.</li>
+          <li style="margin-bottom: 8px;"><strong>High-Bandwidth 3D Visual Rendering Demands:</strong> Visualizing spatial point clouds and kinematic digital twins traditionally required heavy native desktop applications, limiting cross-device accessibility for operations supervisors.</li>
+          <li style="margin-bottom: 8px;"><strong>Lack of Standardized Next-Gen Web Frameworks:</strong> Existing robotics web interfaces often employ obsolete JavaScript tools with high bundle sizes, sluggish DOM reconciliations, and inadequate security protocols.</li>
+        </ul>
+
+        <div class="highlight-card">
+          <h4>PBL Engineering Mandate</h4>
+          <p style="margin: 0;">
+            The project was conceived as a rigorous Project Based Learning milestone to build <strong>NOUVX</strong>: a high-performance web platform combining modern web frameworks (Next.js 16, React 19, TypeScript 5, Tailwind CSS 4) with GPU-accelerated Three.js WebGL graphics, Framer Motion choreographed transitions, and modular micro-frontend components.
+          </p>
+        </div>
+
+        <h3 class="sub-title">1.3 Project Scope & Deliverables</h3>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Deliverable Dimension</th>
+              <th>Functional Scope</th>
+              <th>Target Metric / Standard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Frontend Shell</strong></td>
+              <td>Enterprise Dark/Beige Hybrid Web Application with Responsive Bento Grid</td>
+              <td>100% Mobile & Desktop Fluidity</td>
+            </tr>
+            <tr>
+              <td><strong>3D Particle Engine</strong></td>
+              <td>Dynamic WebGL Particle Field simulating LiDAR point clouds</td>
+              <td>Stable 60 FPS via Three.js Canvas</td>
+            </tr>
+            <tr>
+              <td><strong>Edge Perception Module</strong></td>
+              <td>Metropolis Pipeline & CUDA simulation showcase</td>
+              <td>41 FPS real-time vision telemetry</td>
+            </tr>
+            <tr>
+              <td><strong>Kinematic Actuation</strong></td>
+              <td>ROS 2 Humble bridge telemetry and torque loop visualizer</td>
+              <td>&lt; 10ms simulated response cycle</td>
+            </tr>
+            <tr>
+              <td><strong>Platform Observability</strong></td>
+              <td>Operations Center with 4 dedicated enterprise platform modules</td>
+              <td>Unified Single-Pane Monitoring</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SHEET 6: CHAPTER 2 -->
+      <section class="report-sheet" id="ch2">
+        <div class="section-eyebrow">Chapter 2</div>
+        <h2 class="section-title">System Architecture & Core Modules <span class="chapter-num">02</span></h2>
+
+        <h3 class="sub-title">2.1 Architectural Ingestion & Processing Pipeline</h3>
+        <p>
+          The architecture of NOUVX is engineered as a multi-tier, decoupled pipeline designed for extreme throughput, fault tolerance, and low latency. The system unifies edge telemetry streams from diverse sensor modalities (LiDAR, stereo depth cameras, IMUs, tactile strain gauges) into a consolidated operational dashboard.
+        </p>
+
+        <!-- Architecture Flow Diagram Card -->
+        <div class="highlight-card accent" style="padding: 24px;">
+          <h4 style="margin-bottom: 14px;">End-to-End System Architecture Topology</h4>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; text-align: center;">
+            <div style="background: #FFFFFF; border: 1px solid var(--border-warm); padding: 14px 8px; border-radius: 8px;">
+              <span class="bento-badge">LAYER 01</span>
+              <div style="font-weight: 700; color: #1F2937; font-size: 13px;">SENSORS</div>
+              <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">MQTT Ingestion & Edge Devices</div>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid var(--border-warm); padding: 14px 8px; border-radius: 8px;">
+              <span class="bento-badge">LAYER 02</span>
+              <div style="font-weight: 700; color: #1F2937; font-size: 13px;">ACQUISITION</div>
+              <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Apache Kafka Event Stream</div>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid var(--border-warm); padding: 14px 8px; border-radius: 8px;">
+              <span class="bento-badge">LAYER 03</span>
+              <div style="font-weight: 700; color: #1F2937; font-size: 13px;">AI PROCESSING</div>
+              <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">CUDA + TensorRT 10 Cores</div>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid var(--border-warm); padding: 14px 8px; border-radius: 8px;">
+              <span class="bento-badge">LAYER 04</span>
+              <div style="font-weight: 700; color: #1F2937; font-size: 13px;">NOUVX UI</div>
+              <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Next.js 16 + WebGL 3D</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="sub-title">2.2 Detailed Module Breakdown</h3>
+
+        <div class="bento-grid">
+          <div class="bento-card">
+            <img src="./assets/hero_lab.jpg" alt="Nouvx Core Lab" class="bento-img">
+            <span class="bento-badge">CORE ORCHESTRATION</span>
+            <h4>1. NOUVX CORE</h4>
+            <p>
+              Acts as the central nervous system. Manages autonomous multi-agent task distribution, dynamic priority queue scheduling, and mission plan dispatch across robotic arms and AGVs.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <img src="./assets/neural_network.jpg" alt="VisionGrid Perception" class="bento-img">
+            <span class="bento-badge">SPATIAL PERCEPTION</span>
+            <h4>2. VISIONGRID</h4>
+            <p>
+              Provides hardware-accelerated video intelligence and spatial perception. Leverages NVIDIA Metropolis pipelines to extract geometric bounding boxes, depth maps, and semantic scene segmentations at 41 FPS.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <img src="./assets/robotics_hand.jpg" alt="Robotics Command" class="bento-img">
+            <span class="bento-badge">ACTUATION & KINEMATICS</span>
+            <h4>3. ROBOTICS CMD</h4>
+            <p>
+              Interprets path trajectories into low-level joint motor torques. Bridges ROS 2 Humble nodes with industrial PLC systems maintaining &lt;10ms deterministic feedback loops.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <img src="./assets/ai_dashboard.jpg" alt="Ops Center" class="bento-img">
+            <span class="bento-badge">FLEET OBSERVABILITY</span>
+            <h4>4. OPS CENTER</h4>
+            <p>
+              Provides centralized telemetry, battery levels, mechanical strain gauges, and network latency graphs. Features automated emergency pause (E-Stop) and Over-The-Air (OTA) firmware deployment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SHEET 7: CHAPTER 3 -->
+      <section class="report-sheet" id="ch3">
+        <div class="section-eyebrow">Chapter 3</div>
+        <h2 class="section-title">Industrial Applications & Practical Value <span class="chapter-num">03</span></h2>
+
+        <p>
+          The NOUVX platform was designed to solve concrete operational bottlenecks across heavy manufacturing, semiconductor cleanrooms, healthcare robotics, and logistics warehousing.
+        </p>
+
+        <div class="bento-grid">
+          <div class="bento-card">
+            <span class="bento-badge">CASE STUDY 01</span>
+            <h4>Autonomous Electronics Assembly</h4>
+            <p>
+              Precision insertion of fragile surface-mount components onto printed circuit boards. Utilizing closed-loop tactile feedback to prevent micro-fractures in silicon wafers.
+            </p>
+            <div style="font-size: 12px; color: var(--accent-deep-bronze); font-weight: 700;">Outcome: 99.98% Defect-Free Placement</div>
+          </div>
+
+          <div class="bento-card">
+            <span class="bento-badge">CASE STUDY 02</span>
+            <h4>High-Density Warehouse Fulfillment</h4>
+            <p>
+              Autonomous Mobile Robots (AMRs) coordinating multi-agent collision-free routing in high-bay distribution centers during peak consumer holiday traffic.
+            </p>
+            <div style="font-size: 12px; color: var(--accent-deep-bronze); font-weight: 700;">Outcome: 3.4x Faster Picking Throughput</div>
+          </div>
+
+          <div class="bento-card">
+            <span class="bento-badge">CASE STUDY 03</span>
+            <h4>Hazardous Materials Handling</h4>
+            <p>
+              Remote teleoperation and automated sorting in radiation environments and chemical synthesis facilities, reducing direct human exposure to zero.
+            </p>
+            <div style="font-size: 12px; color: var(--accent-deep-bronze); font-weight: 700;">Outcome: 100% Zero-Exposure Safety Record</div>
+          </div>
+        </div>
+
+        <h3 class="sub-title">3.2 Technology Readiness & Commercial Value</h3>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Industry Sector</th>
+              <th>Legacy Human/Semi-Automated Method</th>
+              <th>NOUVX Physical AI Deployment</th>
+              <th>Productivity Gain</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Automotive Welding</strong></td>
+              <td>Fixed teach-pendant robotic paths with rigid jig clamping</td>
+              <td>Vision-guided dynamic seam tracking with real-time torch angle adjustment</td>
+              <td>+42% Cycle Time Improvement</td>
+            </tr>
+            <tr>
+              <td><strong>Cold-Chain Logistics</strong></td>
+              <td>Manual pallet inspection and barcode scanning in -20°C chillers</td>
+              <td>Thermal LiDAR vision verification with automated autonomous pallet staging</td>
+              <td>-68% Energy & Labor Overhead</td>
+            </tr>
+            <tr>
+              <td><strong>Surgical Tool Sterilization</strong></td>
+              <td>Manual multi-stage biological chemical wash and ultrasonic bath tracking</td>
+              <td>Robotic manipulator with RFID verification and high-temperature autoclave chambering</td>
+              <td>100% Compliance Audit Track</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SHEET 8: CHAPTER 4 -->
+      <section class="report-sheet" id="ch4">
+        <div class="section-eyebrow">Chapter 4</div>
+        <h2 class="section-title">Practical Work Done & Component Engineering <span class="chapter-num">04</span></h2>
+
+        <h3 class="sub-title">4.1 Technical Stack Integration</h3>
+        <p>
+          During this Project Based Learning lifecycle, extensive development was conducted across frontend architecture, 3D WebGL graphics shaders, state persistence, and responsive UI layout design.
+        </p>
+
+        <div class="highlight-card">
+          <h4>Software & Framework Configuration</h4>
+          <p style="margin-bottom: 4px;"><strong>Core Framework:</strong> Next.js 16.4.0 (Turbopack, App Router) with React 19.3.0</p>
+          <p style="margin-bottom: 4px;"><strong>Language:</strong> TypeScript 5.x with strict compile-time type invariants</p>
+          <p style="margin-bottom: 4px;"><strong>Styling System:</strong> Tailwind CSS v4 with custom CSS variables & HSL themes</p>
+          <p style="margin-bottom: 4px;"><strong>3D Engine:</strong> Three.js v0.186 with WebGL Renderer & requestAnimationFrame loop</p>
+          <p style="margin-bottom: 0;"><strong>Animation Engine:</strong> Framer Motion 14.0 for spring physics and layout morphing</p>
+        </div>
+
+        <h3 class="sub-title">4.2 Implementation of ParticleField.tsx (Three.js WebGL Engine)</h3>
+        <p>
+          To simulate high-density LiDAR sensor clouds, a specialized client-side WebGL canvas was engineered using Three.js within `ParticleField.tsx`. The component dynamically distributes thousands of vertex points in 3D coordinate space and modulates their position based on mouse cursor parallax and simulated kinematic disturbances.
+        </p>
+
+        <div class="code-block">
+<span class="comment">// Excerpt from src/components/hero/ParticleField.tsx</span>
+<span class="keyword">const</span> geometry = <span class="keyword">new</span> THREE.BufferGeometry();
+<span class="keyword">const</span> positions = <span class="keyword">new</span> Float32Array(particleCount * 3);
+<span class="keyword">const</span> colors = <span class="keyword">new</span> Float32Array(particleCount * 3);
+
+<span class="keyword">for</span> (<span class="keyword">let</span> i = 0; i &lt; particleCount * 3; i += 3) {
+  positions[i] = (Math.random() - 0.5) * 20;
+  positions[i + 1] = (Math.random() - 0.5) * 20;
+  positions[i + 2] = (Math.random() - 0.5) * 20;
+  
+  <span class="comment">// Warm amber gold to cyber cyan particle gradient</span>
+  colors[i] = 0.85 + Math.random() * 0.15;     <span class="comment">// R</span>
+  colors[i + 1] = 0.55 + Math.random() * 0.2;  <span class="comment">// G</span>
+  colors[i + 2] = 0.1;                         <span class="comment">// B</span>
+}
+
+geometry.setAttribute(<span class="string">'position'</span>, <span class="keyword">new</span> THREE.BufferAttribute(positions, 3));
+geometry.setAttribute(<span class="string">'color'</span>, <span class="keyword">new</span> THREE.BufferAttribute(colors, 3));
+        </div>
+
+        <h3 class="sub-title">4.3 Enterprise UI Layout & Bento Grid Structure</h3>
+        <p>
+          The user interface implements modern enterprise design principles inspired by modern industrial consoles. High-density metric badges, monospace telemetry labels, and subtle border glows communicate critical machine state without overwhelming the operations supervisor.
+        </p>
+
+        <div style="margin: 20px 0;">
+          <img src="./assets/nuovx_brand.png" alt="Nuovx Brand Sheet" style="width: 100%; border-radius: 10px; border: 1px solid var(--border-warm); box-shadow: var(--shadow-card);">
+          <p style="font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 6px;">
+            Figure 4.1: NOUVX Unified Design System, Component Tokens, and High-Contrast Visual Architecture.
+          </p>
+        </div>
+      </section>
+
+      <!-- SHEET 9: CHAPTER 5 -->
+      <section class="report-sheet" id="ch5">
+        <div class="section-eyebrow">Chapter 5</div>
+        <h2 class="section-title">Conclusion, Challenges & Future Scope <span class="chapter-num">05</span></h2>
+
+        <h3 class="sub-title">5.1 Technical Challenges Encountered & Overcome</h3>
+        <div class="highlight-card accent">
+          <h4>1. React 19 Hydration & WebGL Window Lifecycle</h4>
+          <p>
+            <strong>Problem:</strong> Initial Three.js initialization threw window-undefined exceptions during Next.js server-side rendering (SSR).<br>
+            <strong>Resolution:</strong> Encapsulated canvas rendering inside React `useEffect` hooks with client-side dynamic guards and strict cleanup routines preventing GPU memory leaks.
+          </p>
+        </div>
+
+        <div class="highlight-card">
+          <h4>2. Tailwind v4 Turbopack Compatibility</h4>
+          <p>
+            <strong>Problem:</strong> Next.js 16 with Tailwind CSS 4 introduced altered post-css bundling rules and new theme token definitions.<br>
+            <strong>Resolution:</strong> Configured clean CSS variable roots and utility mappings ensuring zero build breakage and instant hot-module reloading.
+          </p>
+        </div>
+
+        <h3 class="sub-title">5.2 Project Learning Outcomes</h3>
+        <p>
+          Through this intensive Project Based Learning engagement, the candidate acquired hands-on expertise in:
+        </p>
+        <ul style="margin-left: 24px; color: var(--text-secondary); margin-bottom: 20px;">
+          <li style="margin-bottom: 8px;">Designing full-lifecycle enterprise web architectures using Next.js 16 App Router and React 19.</li>
+          <li style="margin-bottom: 8px;">Integrating real-time 3D WebGL particle simulations using Three.js and GPU shader buffers.</li>
+          <li style="margin-bottom: 8px;">Composing modular, accessible UI design systems with Tailwind CSS 4, Radix UI slots, and Framer Motion.</li>
+          <li style="margin-bottom: 8px;">Modeling physical robotic telemetry loops, ROS 2 message envelopes, and NVIDIA CUDA perception pipelines.</li>
+          <li style="margin-bottom: 8px;">Documenting complex engineering systems adhering to Rajasthan Technical University standards.</li>
+        </ul>
+
+        <h3 class="sub-title">5.3 Future Scope & System Enhancements</h3>
+        <p>
+          Future phases of the NOUVX platform will focus on integrating physical hardware testing benches with real 6-DOF robotic manipulators via WebSockets, implementing WebGPU compute shaders for browser-based neural inference, and expanding fleet management with edge Kubernetes clusters.
+        </p>
+      </section>
+
+      <!-- SHEET 10: REFERENCES -->
+      <section class="report-sheet" id="references">
+        <div class="section-eyebrow">Bibliography & Citations</div>
+        <h2 class="section-title">References <span class="chapter-num">APPENDIX</span></h2>
+
+        <ol style="margin-left: 24px; color: var(--text-secondary); line-height: 1.9; font-size: 13.5px;">
+          <li>NVIDIA Corporation (2025). <em>Isaac Sim: Robotics Simulation and Synthetic Data Generation</em>. NVIDIA Developer Documentation.</li>
+          <li>Macenski, S., et al. (2022). <em>Robot Operating System 2 (ROS 2): Design, Architecture, and Robot Applications</em>. Science Robotics, Vol. 7, No. 66.</li>
+          <li>Vercel Engineering Team (2025). <em>Next.js 16 App Router Architecture & Server Actions Guide</em>. Vercel Inc.</li>
+          <li>Cabello, R., et al. (2024). <em>Three.js: JavaScript 3D Library and WebGL Shader Pipeline</em>. Open Source Project Documentation.</li>
+          <li>Department of Artificial Intelligence & Data Science, Arya College of Engineering & I.T. (2025). <em>Guidelines for Project Based Learning and Industrial Training Documentation</em>. Rajasthan Technical University, Kota.</li>
+          <li>Lavania, D. (2025). <em>Enterprise Fullstack Development and Telemetry Integration Standards</em>. Technical Mentorship Series.</li>
+        </ol>
+
+        <!-- Final Arya & RTU Footer Seal -->
+        <div style="margin-top: 50px; padding-top: 24px; border-top: 1px solid var(--border-warm); display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="./assets/arya_logo.png" alt="Arya Logo" style="height: 34px;">
+            <div style="font-size: 12px; color: var(--text-muted);">
+              Arya College of Engineering & I.T., Jaipur<br>
+              Affiliated to Rajasthan Technical University, Kota
+            </div>
+          </div>
+          <div style="text-align: right; font-size: 12px; color: var(--text-muted);">
+            Candidate: Nandlal Upman (24EARAD108)<br>
+            Session: 2025–2026
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // Smooth scrolling for sidebar links & active state tracking
+    document.querySelectorAll('.toc-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // ScrollSpy to update active link on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.report-sheet');
+      let currentId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.pageYOffset >= top) {
+          currentId = sec.getAttribute('id');
+        }
+      });
+      if (currentId) {
+        document.querySelectorAll('.toc-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + currentId) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

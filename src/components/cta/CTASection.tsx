@@ -2,14 +2,14 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, MapPin, Clock, Shield, Zap, Network, Bot, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Clock, Shield, Zap, Network, Bot, CheckCircle2, Sparkles } from "lucide-react";
 import { Button, Badge } from "@/components/ui";
 
 const PROCESS_STEPS = [
-  { number: "01", title: "Discovery",    description: "System requirements, constraints, and operational context analysis.", color: "#d4a373" },
-  { number: "02", title: "Architecture", description: "Technical design, technology selection, and integration planning.",    color: "#b87333" },
+  { number: "01", title: "Discovery",    description: "System requirements, constraints, and operational context analysis.", color: "#b45309" },
+  { number: "02", title: "Architecture", description: "Technical design, technology selection, and integration planning.",    color: "#9a3412" },
   { number: "03", title: "Prototype",    description: "Rapid validation, proof-of-concept, and iterative refinement.",        color: "#10b981" },
-  { number: "04", title: "Deployment",   description: "Production rollout, monitoring setup, and knowledge transfer.",        color: "#e5a950" },
+  { number: "04", title: "Deployment",   description: "Production rollout, monitoring setup, and knowledge transfer.",        color: "#d97706" },
 ];
 
 const CONTACT_INFO = [
@@ -20,21 +20,21 @@ const CONTACT_INFO = [
 ];
 
 const FOCUS_AREAS = [
-  { icon: Shield,  label: "Security",      desc: "Zero-trust, encryption, compliance",    color: "#c25736" },
-  { icon: Zap,     label: "Reliability",   desc: "99.999% uptime, chaos engineering",    color: "#e5a950" },
-  { icon: Network, label: "Autonomy",      desc: "Self-healing, adaptive systems",        color: "#d4a373" },
-  { icon: Bot,     label: "Intelligence",  desc: "AI-native, model-driven ops",           color: "#c68642" },
+  { icon: Shield,  label: "Security",      desc: "Zero-trust, encryption, compliance",    color: "#ef4444" },
+  { icon: Zap,     label: "Reliability",   desc: "99.999% uptime, chaos engineering",    color: "#d97706" },
+  { icon: Network, label: "Autonomy",      desc: "Self-healing, adaptive systems",        color: "#b45309" },
+  { icon: Bot,     label: "Intelligence",  desc: "AI-native, model-driven ops",           color: "#9a3412" },
 ];
 
 export function CTASection() {
   return (
-    <section className="py-24 lg:py-32 bg-bg-secondary relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-white border-t border-slate-200 relative overflow-hidden">
       {/* Background halos */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px]
-          bg-[radial-gradient(ellipse,rgba(212,163,115,0.15)_0%,transparent_65%)]" />
+          bg-[radial-gradient(ellipse,rgba(180,83,9,0.05)_0%,transparent_65%)]" />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px]
-          bg-[radial-gradient(ellipse,rgba(198,134,66,0.10)_0%,transparent_65%)]" />
+          bg-[radial-gradient(ellipse,rgba(217,119,6,0.03)_0%,transparent_65%)]" />
       </div>
 
       <div className="section-container relative z-10">
@@ -68,10 +68,11 @@ export function CTASection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
         >
-          <Button size="xl" className="group w-full sm:w-auto shine" asChild>
-            <a href="/contact">
-              Start a Project
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          <Button variant="ai" size="xl" className="group w-full sm:w-auto" asChild>
+            <a href="/contact" className="flex items-center gap-2.5">
+              <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
+              <span>Start a Project</span>
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1 text-amber-300" />
             </a>
           </Button>
           <Button variant="outline" size="xl" className="w-full sm:w-auto" asChild>

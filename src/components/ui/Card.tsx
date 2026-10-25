@@ -11,31 +11,31 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     const base = "relative rounded-2xl overflow-hidden transition-all duration-300";
 
     const variants = {
-      default: "bg-[#14100d]/92 backdrop-blur-xl border border-[rgba(212,163,115,0.18)] shadow-[0_10px_30px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.06)]",
+      default: "bg-white border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_6px_18px_-4px_rgba(0,0,0,0.04)]",
       glow: [
-        "bg-[#14100d]/92 backdrop-blur-xl border border-[rgba(212,163,115,0.18)] shadow-[0_10px_30px_rgba(0,0,0,0.6)]",
+        "bg-white border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_6px_18px_-4px_rgba(0,0,0,0.04)]",
         "before:absolute before:inset-0 before:rounded-2xl before:border before:border-transparent",
         "before:transition-all before:duration-500",
-        "hover:before:border-[rgba(212,163,115,0.5)]",
+        "hover:before:border-amber-400/40",
       ].join(" "),
-      border: "bg-[#14100d]/60 border border-[rgba(212,163,115,0.18)]",
+      border: "bg-white border border-slate-200",
       glass: [
-        "backdrop-blur-2xl border border-[rgba(212,163,115,0.22)]",
-        "bg-[#14100d]/85 saturate-150",
-        "shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_20px_50px_rgba(0,0,0,0.7)]",
+        "backdrop-blur-2xl border border-slate-200/80",
+        "bg-white/90",
+        "shadow-[0_4px_20px_-2px_rgba(0,0,0,0.04)]",
       ].join(" "),
       premium: [
-        "bg-[#14100d]/92 backdrop-blur-xl border border-[rgba(212,163,115,0.18)]",
+        "bg-white border border-slate-200/90",
         "before:absolute before:inset-0 before:rounded-2xl before:pointer-events-none",
-        "before:bg-gradient-to-br before:from-[rgba(212,163,115,0.05)] before:to-[rgba(198,134,66,0.02)]",
-        "shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_12px_40px_rgba(0,0,0,0.7)]",
+        "before:bg-gradient-to-b before:from-amber-50/20 before:to-transparent",
+        "shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_-4px_rgba(0,0,0,0.04)]",
       ].join(" "),
     };
 
     const hoverStyles = hover
       ? [
-          "hover:border-[rgba(212,163,115,0.55)]",
-          "hover:shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_35px_rgba(212,163,115,0.2),inset_0_1px_0_rgba(255,255,255,0.12)]",
+          "hover:border-amber-300/80",
+          "hover:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.08),0_0_1px_rgba(217,119,6,0.25)]",
           "hover:-translate-y-1",
         ].join(" ")
       : "";

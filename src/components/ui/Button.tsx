@@ -15,27 +15,34 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: [
-          "bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold",
-          "shadow-[0_0_24px_rgba(212,163,115,0.38)]",
-          "hover:shadow-[0_0_36px_rgba(212,163,115,0.6)] hover:scale-[1.02] transition-all",
+          "bg-[#09090b] hover:bg-[#27272a] text-white font-semibold",
+          "shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_2px_8px_rgba(0,0,0,0.08)]",
+          "hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_6px_20px_rgba(124,58,237,0.2)]",
+          "hover:scale-[1.01] transition-all",
+        ].join(" "),
+        ai: [
+          "relative group overflow-hidden bg-[#09090b] text-white font-semibold",
+          "border border-white/15 hover:border-amber-400/50",
+          "shadow-[0_0_0_1px_rgba(124,58,237,0.28),0_4px_16px_rgba(124,58,237,0.25),inset_0_1px_0_rgba(255,255,255,0.2)]",
+          "hover:shadow-[0_0_0_1px_rgba(245,158,11,0.45),0_8px_28px_rgba(124,58,237,0.35),0_2px_14px_rgba(245,158,11,0.25),inset_0_1px_0_rgba(255,255,255,0.35)]",
+          "hover:scale-[1.015] active:scale-[0.985] transition-all duration-300",
         ].join(" "),
         indigo: [
-          "bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold",
-          "shadow-[0_0_24px_rgba(212,163,115,0.38)]",
-          "hover:shadow-[0_0_36px_rgba(212,163,115,0.6)] hover:scale-[1.02] transition-all",
+          "bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-semibold",
+          "shadow-[0_2px_12px_rgba(124,58,237,0.3)] hover:shadow-[0_4px_20px_rgba(124,58,237,0.45)] hover:scale-[1.01] transition-all",
         ].join(" "),
         destructive:
-          "bg-[#c25736] text-white hover:bg-[#d46642] shadow-[0_4px_16px_rgba(194,87,54,0.35)]",
+          "bg-[#ef4444] text-white hover:bg-[#dc2626] shadow-sm",
         outline: [
-          "border border-[#d4a373]/35 bg-[#181310]/80 text-[#ffffff] font-semibold",
-          "hover:border-[#e2b17a] hover:bg-[#d4a373]/15 hover:text-[#e2b17a]",
-          "backdrop-blur-md shadow-sm",
+          "border border-slate-200 bg-white text-slate-800 font-semibold",
+          "hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900",
+          "shadow-xs transition-all",
         ].join(" "),
         secondary:
-          "bg-[#1e1713] text-[#ffffff] border border-[#33261e] hover:border-[#d4a373]/40 hover:bg-[#281f1a]",
+          "bg-slate-100 text-slate-900 border border-slate-200 hover:bg-slate-200/80",
         ghost:
-          "text-[#d6cfc7] hover:text-[#ffffff] hover:bg-white/5",
-        link: "text-[#e2b17a] underline-offset-4 hover:underline p-0 h-auto",
+          "text-slate-600 hover:text-slate-900 hover:bg-slate-100",
+        link: "text-[#7c3aed] underline-offset-4 hover:underline p-0 h-auto",
       },
       size: {
         default: "h-10 px-5 py-2",

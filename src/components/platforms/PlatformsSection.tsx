@@ -142,7 +142,7 @@ const PLATFORMS = [
     tagline: "A hardened backend layer for inference services, telemetry streams, model registries, and operator workflows.",
     metrics: ["12ms P99", "480K req/s", "K8s Native"],
     icon: Cpu,
-    accentColor: "#d4a373",
+    accentColor: "#b45309",
     href: "/products/core",
     features: [
       "Distributed inference serving",
@@ -176,7 +176,7 @@ const PLATFORMS = [
     tagline: "Fleet coordination, ROS-compatible communication, control surfaces, and machine-state monitoring.",
     metrics: ["ROS Bus", "Live I/O", "Path Lock"],
     icon: Bot,
-    accentColor: "#c68642",
+    accentColor: "#d97706",
     href: "/products/robotics",
     features: [
       "ROS 2 integration",
@@ -193,7 +193,7 @@ const PLATFORMS = [
     tagline: "Predictive analytics, anomaly alerts, distributed compute maps, and automation pipelines for infrastructure teams.",
     metrics: ["24/7", "WebSocket", "SLA Layer"],
     icon: Monitor,
-    accentColor: "#b87333",
+    accentColor: "#9a3412",
     href: "/products/ops-center",
     features: [
       "Predictive anomaly detection",
@@ -208,13 +208,13 @@ const PLATFORMS = [
 
 export function PlatformsSection() {
   return (
-    <section id="systems" className="py-16 lg:py-20 bg-bg-secondary relative overflow-hidden">
+    <section id="systems" className="py-16 lg:py-20 bg-slate-50/70 border-b border-slate-200 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[400px]
-          bg-[radial-gradient(ellipse,rgba(212,163,115,0.12)_0%,transparent_65%)]" />
+          bg-[radial-gradient(ellipse,rgba(79,70,229,0.06)_0%,transparent_65%)]" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[300px]
-          bg-[radial-gradient(ellipse,rgba(198,134,66,0.08)_0%,transparent_65%)]" />
+          bg-[radial-gradient(ellipse,rgba(124,58,237,0.04)_0%,transparent_65%)]" />
       </div>
 
       <div className="section-container relative z-10">

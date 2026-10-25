@@ -52,7 +52,7 @@ const SERVICES: Service[] = [
       "GPU cluster orchestration on Kubernetes",
     ],
     technologies: ["CUDA 12.4", "TensorRT 10", "vLLM", "Triton Server", "PyTorch 2.3", "ONNX Runtime"],
-    color: "#d4a373",
+    color: "#b45309",
     deliverables: [
       "Production-ready inference API with autoscaling",
       "Model registry with versioning and A/B testing",
@@ -98,7 +98,7 @@ const SERVICES: Service[] = [
       "Hardware-in-the-loop testing and safety certification",
     ],
     technologies: ["ROS 2 Humble", "Nav2", "MoveIt 2", "Isaac Sim", "Fast DDS", "ROS 2 Control"],
-    color: "#c68642",
+    color: "#d97706",
     deliverables: [
       "Production robot control stack with safety states",
       "Fleet management dashboard and telemetry",
@@ -121,7 +121,7 @@ const SERVICES: Service[] = [
       "Disaster recovery and active-active replication",
     ],
     technologies: ["Kubernetes 1.29", "ArgoCD", "Cilium eBPF", "KEDA", "Istio", "Helm"],
-    color: "#b87333",
+    color: "#9a3412",
     deliverables: [
       "Production Kubernetes infrastructure with IaC",
       "CI/CD pipeline with canary deployments",
@@ -144,7 +144,7 @@ const SERVICES: Service[] = [
       "Feature stores and ML data pipelines",
     ],
     technologies: ["Apache Kafka 3.6", "ClickHouse", "TimescaleDB", "Redis", "PostgreSQL 16", "Flink"],
-    color: "#e5a950",
+    color: "#f59e0b",
     deliverables: [
       "Event-driven data architecture with schemas",
       "Real-time analytics dashboards",
@@ -167,7 +167,7 @@ const SERVICES: Service[] = [
       "Runbook automation and chaos engineering",
     ],
     technologies: ["Prometheus", "Grafana", "PagerDuty", "OpenTelemetry", "Temporal", "Prophet"],
-    color: "#c2653c",
+    color: "#f43f5e",
     deliverables: [
       "Custom monitoring platform with ML-powered alerts",
       "Executive dashboards with KPI tracking",
@@ -182,7 +182,7 @@ const ENGAGEMENT_MODELS = [
     title: "Project-Based",
     description: "Scoped engagement with fixed deliverables, timeline, and clear handoff.",
     features: ["Fixed scope & timeline", "Dedicated architect", "Full documentation", "Knowledge transfer"],
-    color: "#d4a373",
+    color: "#b45309",
   },
   {
     title: "Embedded Teams",
@@ -194,19 +194,19 @@ const ENGAGEMENT_MODELS = [
     title: "Managed Operations",
     description: "We build, deploy, and operate the system with guaranteed SLAs.",
     features: ["24/7 operations", "99.999% SLA", "Proactive monitoring", "Incident response"],
-    color: "#b87333",
+    color: "#9a3412",
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-bg-primary text-text-primary selection:bg-accent/30 selection:text-white">
+    <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-accent/30 selection:text-white">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-50 bg-bg-primary/90 backdrop-blur-2xl border-b border-border shadow-xs">
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-2xl border-b border-border shadow-xs">
         <div className="section-container flex items-center justify-between h-16 lg:h-[4.5rem]">
           <div className="flex items-center gap-6">
             <a href="/" className="flex items-center group py-1">
-              <NuovxLogo variant="dark" size="sm" showTagline={false} />
+              <NuovxLogo variant="light" size="sm" showTagline={false} />
             </a>
             <span className="h-4 w-px bg-border hidden sm:block" />
             <a
@@ -219,8 +219,9 @@ export default function ServicesPage() {
           </div>
           <div className="flex items-center gap-3">
             <Button
+              variant="ai"
               size="sm"
-              className="bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold text-[13px] rounded-xl px-4 shadow-sm"
+              className="rounded-xl px-4 shadow-sm"
               asChild
             >
               <a href="/contact">Contact Us</a>
@@ -230,9 +231,9 @@ export default function ServicesPage() {
       </header>
 
       {/* ── Hero ── */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-bg-primary">
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white border-b border-slate-200">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse,rgba(212,163,115,0.14)_0%,transparent_70%)]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse,rgba(99,102,241,0.14)_0%,transparent_70%)]" />
         </div>
 
         <div className="section-container relative z-10 text-center max-w-4xl mx-auto">
@@ -243,7 +244,7 @@ export default function ServicesPage() {
 
           <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-6 text-text-primary">
             Production-Grade{" "}
-            <span className="bg-gradient-to-r from-text-primary via-[#e2b17a] to-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-text-primary via-[#b45309] to-[#d97706] bg-clip-text text-transparent">
               AI & Robotics
             </span>{" "}
             Engineering
@@ -371,7 +372,7 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               size="lg"
-              className="bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold rounded-2xl px-8 shadow-md"
+              className="bg-[#b45309] hover:bg-[#d97706] text-white font-bold rounded-2xl px-8 shadow-md"
               asChild
             >
               <a href="/contact">
@@ -473,7 +474,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
               <div className="mt-5 pt-4 border-t border-border">
                 <Button
                   size="sm"
-                  className="w-full bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold text-xs rounded-xl shadow-xs"
+                  className="w-full bg-[#b45309] hover:bg-[#d97706] text-white font-bold text-xs rounded-xl shadow-xs"
                   asChild
                 >
                   <a href="/contact">

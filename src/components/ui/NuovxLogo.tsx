@@ -26,7 +26,7 @@ export function NuovxLogo({
   }[size];
 
   const isDark = variant === "dark" || variant === "color";
-  const subTextColor = isDark ? "#a4b3c2" : "#4a5b6d";
+  const subTextColor = isDark ? "#94a3b8" : "#4a5b6d";
 
   // Icon-only variant — uses the icon PNG
   if (variant === "icon") {

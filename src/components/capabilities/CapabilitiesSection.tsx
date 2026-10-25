@@ -26,11 +26,11 @@ export function CapabilityCard({ id, title, description, icon: Icon, color, tags
       {/* Outer ambient glow on hover */}
       <div
         className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm pointer-events-none"
-        style={{ background: `radial-gradient(ellipse at top left, ${color}25, transparent 65%)` }}
+        style={{ background: `radial-gradient(ellipse at top left, ${color}20, transparent 65%)` }}
       />
 
       <div
-        className="h-full rounded-2xl bg-[#ffffff] border border-[#e2d5c5] shadow-[0_4px_24px_rgba(40,25,15,0.04)] group-hover:shadow-[0_16px_40px_rgba(184,115,51,0.14)] group-hover:border-[#b87333]/70 transition-all duration-300 relative overflow-hidden flex flex-col p-6"
+        className="h-full rounded-2xl bg-white/95 border border-[#e8dfd5] shadow-[0_2px_12px_rgba(120,53,15,0.04)] group-hover:shadow-[0_16px_36px_rgba(180,83,9,0.12)] group-hover:border-[#b45309]/50 transition-all duration-300 relative overflow-hidden flex flex-col p-6"
       >
         {/* Subtle gradient top highlight */}
         <div
@@ -50,25 +50,25 @@ export function CapabilityCard({ id, title, description, icon: Icon, color, tags
             <Icon className="w-6 h-6" style={{ color }} aria-hidden="true" />
           </div>
           <span
-            className="text-4xl font-display font-bold leading-none select-none text-[#cbb8a3] group-hover:text-[#b87333]/50 transition-colors"
+            className="text-4xl font-display font-bold leading-none select-none text-[#e7dfd5] group-hover:text-[#b45309]/30 transition-colors"
           >
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
 
         <h3
-          className="text-lg font-display font-bold text-[#17110d] mb-2.5 tracking-tight transition-colors duration-300 group-hover:text-[#945d2b]"
+          className="text-lg font-display font-bold text-[#1c1917] mb-2.5 tracking-tight transition-colors duration-300 group-hover:text-[#9a3412]"
         >
           {title}
         </h3>
-        <p className="text-sm text-[#5a4d40] leading-relaxed mb-6 flex-1 font-normal">{description}</p>
+        <p className="text-sm text-[#57534e] leading-relaxed mb-6 flex-1 font-normal">{description}</p>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5">
           {tags.map((tag, i) => (
             <span
               key={i}
-              className="px-2.5 py-1 rounded-md text-xs font-mono bg-[#f5efe5] border border-[#dfd1bf] text-[#6b5847] group-hover:border-[#c68642]/50 group-hover:text-[#2d2015] transition-colors"
+              className="px-2.5 py-1 rounded-md text-xs font-mono bg-[#f5efe6] border border-[#e8ded2] text-[#78350f] group-hover:border-[#b45309]/40 group-hover:text-[#9a3412] transition-colors"
             >
               {tag}
             </span>
@@ -91,7 +91,7 @@ const CAPABILITIES = [
     title: "Artificial Intelligence",
     description: "Decision models, orchestration, agentic workflows, and supervised automation for operational environments.",
     icon: Cpu,
-    color: "#d4a373",
+    color: "#b45309",
     tags: ["LLM Orchestration", "Agentic Workflows", "Decision Models", "Model Evaluation"],
     index: 0,
   },
@@ -100,7 +100,7 @@ const CAPABILITIES = [
     title: "Computer Vision",
     description: "Detection, tracking, segmentation, facial mapping, edge analytics, and industrial monitoring pipelines.",
     icon: Eye,
-    color: "#10b981",
+    color: "#059669",
     tags: ["Object Detection", "Multi-Object Tracking", "Segmentation", "Edge Analytics"],
     index: 1,
   },
@@ -109,7 +109,7 @@ const CAPABILITIES = [
     title: "Robotics Systems",
     description: "Robotic control software, ROS integration, machine communication, and autonomous command layers.",
     icon: Bot,
-    color: "#c68642",
+    color: "#78350f",
     tags: ["ROS 2 Integration", "Fleet Coordination", "Sensor Fusion", "Safety Systems"],
     index: 2,
   },
@@ -118,7 +118,7 @@ const CAPABILITIES = [
     title: "ML Infrastructure",
     description: "Model registries, inference services, distributed training, observability, and deployment automation.",
     icon: Database,
-    color: "#b87333",
+    color: "#9a3412",
     tags: ["Model Registry", "Distributed Training", "Inference Serving", "CI/CD for ML"],
     index: 3,
   },
@@ -127,7 +127,7 @@ const CAPABILITIES = [
     title: "Autonomous Platforms",
     description: "Sensor fusion, planning logic, telemetry loops, fleet coordination, and real-time decision support.",
     icon: Globe,
-    color: "#e5a950",
+    color: "#d97706",
     tags: ["Sensor Fusion", "Planning Logic", "Telemetry Loops", "Real-time Decisions"],
     index: 4,
   },
@@ -136,7 +136,7 @@ const CAPABILITIES = [
     title: "AI Automation",
     description: "Workflow automation, alerting, human-in-the-loop review, and intelligent software operations.",
     icon: Zap,
-    color: "#e2b17a",
+    color: "#b45309",
     tags: ["Workflow Engine", "Alerting", "Human-in-the-Loop", "Intelligent Ops"],
     index: 5,
   },
@@ -145,7 +145,7 @@ const CAPABILITIES = [
     title: "Backend Systems",
     description: "Enterprise APIs, event streams, data planes, identity controls, and resilient service architectures.",
     icon: Server,
-    color: "#10b981",
+    color: "#78350f",
     tags: ["API Gateway", "Event Streaming", "Data Plane", "Service Mesh"],
     index: 6,
   },
@@ -154,7 +154,7 @@ const CAPABILITIES = [
     title: "Operational Intelligence",
     description: "Dashboards, live system state, predictive analytics, and executive-level monitoring.",
     icon: Network,
-    color: "#d4a373",
+    color: "#c2410c",
     tags: ["Real-time Dashboards", "Predictive Analytics", "Executive Views", "Alerting"],
     index: 7,
   },
@@ -163,7 +163,7 @@ const CAPABILITIES = [
     title: "Distributed Cloud",
     description: "Hybrid cloud, edge compute, Kubernetes, message queues, and secure multi-site deployments.",
     icon: Layers,
-    color: "#c68642",
+    color: "#92400e",
     tags: ["Hybrid Cloud", "Edge Computing", "Kubernetes", "Multi-site"],
     index: 8,
   },
@@ -171,13 +171,13 @@ const CAPABILITIES = [
 
 export function CapabilitiesSection() {
   return (
-    <section className="py-24 lg:py-32 bg-[#f8f4ec] relative overflow-hidden border-y border-[#e8ded0]">
-      {/* Background texture with dusky warmth */}
+    <section className="py-24 lg:py-32 bg-[#faf6f0] relative overflow-hidden border-y border-[#e8dfd5]">
+      {/* Background warm dusk ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[700px]
-          bg-[radial-gradient(ellipse,rgba(212,163,115,0.18)_0%,transparent_65%)]" />
+          bg-[radial-gradient(ellipse,rgba(217,119,6,0.06)_0%,transparent_65%)]" />
         <div className="absolute top-0 right-0 w-[500px] h-[400px]
-          bg-[radial-gradient(ellipse,rgba(198,134,66,0.10)_0%,transparent_65%)]" />
+          bg-[radial-gradient(ellipse,rgba(180,83,9,0.04)_0%,transparent_65%)]" />
       </div>
       
       <div className="section-container relative z-10">
@@ -188,18 +188,18 @@ export function CapabilitiesSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="section-header mb-16 text-center max-w-3xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-[#ebdccb] border border-[#d8c5b0] text-[#7a4817] shadow-sm mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#b87333] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-[#fef3c7]/80 border border-[#fde68a] text-[#92400e] shadow-xs mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#d97706] animate-pulse" />
             Core Capabilities
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-[#15100c] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-[#1c1917] mb-4">
             Precision Software for
             <br />
-            <span className="bg-gradient-to-r from-[#8f5626] via-[#b87333] to-[#c68642] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#1c1917] via-[#78350f] to-[#b45309] bg-clip-text text-transparent">
               Advanced Systems
             </span>
           </h2>
-          <p className="text-[#5c4f42] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[#78716c] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
             Nine specialized engineering domains, each built on production-grade
             tooling and deep operational expertise.
           </p>

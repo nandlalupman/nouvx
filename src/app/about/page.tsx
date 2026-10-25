@@ -34,7 +34,7 @@ const TIMELINE = [
     year: "2022",
     title: "Foundation",
     description: "NUOVX founded with the mission to bridge AI research and physical-world systems engineering.",
-    color: "#d4a373",
+    color: "#b45309",
   },
   {
     year: "2023",
@@ -46,19 +46,19 @@ const TIMELINE = [
     year: "2024",
     title: "Vision Intelligence Platform",
     description: "Launched VisionGrid — 41 FPS edge inference for industrial quality inspection across 47 facilities.",
-    color: "#c68642",
+    color: "#d97706",
   },
   {
     year: "2025",
     title: "Enterprise NIM Fabric",
     description: "Production-grade NVIDIA NIM microservice fabric with 99.999% SLA and active-active DR.",
-    color: "#b87333",
+    color: "#9a3412",
   },
   {
     year: "2026",
     title: "Global Scale",
     description: "Operating across India and Europe with 200+ autonomous agents, DGX clusters, and sovereign AI infrastructure.",
-    color: "#e5a950",
+    color: "#f59e0b",
   },
 ];
 
@@ -67,13 +67,13 @@ const VALUES = [
     icon: Shield,
     title: "Engineering Rigor",
     description: "Every system we build meets production-grade reliability standards. Zero shortcuts, zero compromises.",
-    color: "#c2653c",
+    color: "#f43f5e",
   },
   {
     icon: Target,
     title: "Mission-Critical Focus",
     description: "We build for environments where failure is not an option — autonomous fleets, industrial control, and real-time analytics.",
-    color: "#d4a373",
+    color: "#b45309",
   },
   {
     icon: Users,
@@ -85,40 +85,40 @@ const VALUES = [
     icon: Zap,
     title: "Obsessive Performance",
     description: "Sub-millisecond latencies, 41 FPS vision pipelines, 480K req/s throughput — we push hardware to its limits.",
-    color: "#e5a950",
+    color: "#f59e0b",
   },
   {
     icon: Globe,
     title: "Sovereign Systems",
     description: "Our infrastructure runs where our clients need it — on-prem, edge, air-gapped, or hybrid cloud.",
-    color: "#b87333",
+    color: "#9a3412",
   },
   {
     icon: Heart,
     title: "Knowledge Transfer",
     description: "Every engagement ends with your team fully empowered to operate, maintain, and extend the systems we build.",
-    color: "#c68642",
+    color: "#d97706",
   },
 ];
 
 const TEAM_CAPABILITIES = [
-  { icon: Cpu, label: "CUDA & TensorRT Optimization", color: "#d4a373" },
-  { icon: Bot, label: "ROS 2 Robotics Engineering", color: "#c68642" },
+  { icon: Cpu, label: "CUDA & TensorRT Optimization", color: "#b45309" },
+  { icon: Bot, label: "ROS 2 Robotics Engineering", color: "#d97706" },
   { icon: Eye, label: "Computer Vision at Scale", color: "#10b981" },
-  { icon: Network, label: "Distributed Infrastructure", color: "#b87333" },
-  { icon: Zap, label: "Real-Time Analytics", color: "#e5a950" },
-  { icon: Shield, label: "Security & Compliance", color: "#c2653c" },
+  { icon: Network, label: "Distributed Infrastructure", color: "#9a3412" },
+  { icon: Zap, label: "Real-Time Analytics", color: "#f59e0b" },
+  { icon: Shield, label: "Security & Compliance", color: "#f43f5e" },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-bg-primary text-text-primary selection:bg-accent/30 selection:text-white">
+    <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-accent/30 selection:text-white">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-50 bg-bg-primary/90 backdrop-blur-2xl border-b border-border shadow-xs">
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-2xl border-b border-border shadow-xs">
         <div className="section-container flex items-center justify-between h-16 lg:h-[4.5rem]">
           <div className="flex items-center gap-6">
             <a href="/" className="flex items-center group py-1">
-              <NuovxLogo variant="dark" size="sm" showTagline={false} />
+              <NuovxLogo variant="light" size="sm" showTagline={false} />
             </a>
             <span className="h-4 w-px bg-border hidden sm:block" />
             <a
@@ -131,8 +131,9 @@ export default function AboutPage() {
           </div>
           <div className="flex items-center gap-3">
             <Button
+              variant="ai"
               size="sm"
-              className="bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold text-[13px] rounded-xl px-4 shadow-sm"
+              className="rounded-xl px-4 shadow-sm"
               asChild
             >
               <a href="/contact">Contact Us</a>
@@ -142,9 +143,9 @@ export default function AboutPage() {
       </header>
 
       {/* ── Hero ── */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-bg-primary">
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white border-b border-slate-200">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse,rgba(212,163,115,0.14)_0%,transparent_70%)]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse,rgba(99,102,241,0.14)_0%,transparent_70%)]" />
         </div>
 
         <div className="section-container relative z-10 text-center max-w-4xl mx-auto">
@@ -154,7 +155,7 @@ export default function AboutPage() {
 
           <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-6 text-text-primary">
             Engineering the Future of{" "}
-            <span className="bg-gradient-to-r from-text-primary via-[#e2b17a] to-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-text-primary via-[#b45309] to-[#d97706] bg-clip-text text-transparent">
               Physical Intelligence
             </span>
           </h1>
@@ -371,7 +372,7 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               size="lg"
-              className="bg-[#d4a373] hover:bg-[#e2b17a] text-[#0a0807] font-bold rounded-2xl px-8 shadow-md"
+              className="bg-[#b45309] hover:bg-[#d97706] text-white font-bold rounded-2xl px-8 shadow-md"
               asChild
             >
               <a href="/contact">

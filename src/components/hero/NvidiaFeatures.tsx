@@ -27,7 +27,7 @@ const NVIDIA_PILLARS = [
     tabTitle: "ACCELERATED COMPUTE",
     badge: "NVIDIA CUDA-X & TENSORRT",
     icon: Cpu,
-    color: "#d4a373", // champagne gold
+    color: "#b45309", // warm burnished bronze
     title: "Tensor Core Acceleration & Microsecond Inference",
     description:
       "Enterprise model serving optimized on NVIDIA Tensor Cores. Continuous dynamic batching, paged KV-cache, and quantized FP8 execution deliver blistering inference speeds with zero latency drift.",
@@ -55,7 +55,7 @@ const NVIDIA_PILLARS = [
     tabTitle: "PHYSICAL AI & ROBOTICS",
     badge: "ISAAC SIM & ROS 2 HUMBLE",
     icon: Bot,
-    color: "#c68642", // warm bronze
+    color: "#78350f", // rich saddle brown
     title: "Autonomous Fleet Orchestration & Real-Time Kinematics",
     description:
       "Full-stack physical AI for warehouse AMR fleets and industrial manipulators. Built on ROS 2 Humble with hardware-in-the-loop simulation, digital twin physics, and deterministic trajectory generation.",
@@ -111,7 +111,7 @@ const NVIDIA_PILLARS = [
     tabTitle: "ENTERPRISE NIM FABRIC",
     badge: "CONTAINERIZED MICROSERVICES",
     icon: Network,
-    color: "#e5a950", // warm amber
+    color: "#f59e0b", // warm amber
     title: "Standardized AI Microservices & Fault-Tolerant Fabric",
     description:
       "NVIDIA NIM-compatible microservice fabric engineered for zero downtime. Kubernetes-orchestrated container clusters with automated self-healing, Prometheus telemetry, and automated scaling.",
@@ -142,19 +142,19 @@ export function NvidiaFeatures() {
   const Icon = current.icon;
 
   return (
-    <section className="bg-[#ffffff] text-[#140f0c] pt-4 pb-24 border-b border-[#e8dfd5] relative overflow-hidden">
-      {/* Background ambient warmth */}
+    <section className="bg-white text-text-primary pt-4 pb-24 border-b border-border relative overflow-hidden">
+      {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px]
-          bg-[radial-gradient(ellipse,rgba(212,163,115,0.12)_0%,transparent_70%)]" />
+          bg-[radial-gradient(ellipse,rgba(79,70,229,0.06)_0%,transparent_70%)]" />
       </div>
 
       {/* Marquee ticker bar */}
-      <div className="border-y border-[#ecdccb] bg-[#fdfbf7] py-3.5 mb-16 overflow-hidden select-none">
+      <div className="border-y border-border bg-slate-50/70 py-3.5 mb-16 overflow-hidden select-none">
         <div className="flex items-center gap-8 whitespace-nowrap animate-marquee">
           {[...NVIDIA_TICKER_ITEMS, ...NVIDIA_TICKER_ITEMS].map((item, idx) => (
-            <div key={idx} className="flex items-center gap-3 text-xs font-mono font-bold tracking-widest text-[#786553]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#b87333]" />
+            <div key={idx} className="flex items-center gap-3 text-xs font-mono font-bold tracking-widest text-slate-600">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
               <span>{item}</span>
             </div>
           ))}
@@ -164,18 +164,18 @@ export function NvidiaFeatures() {
       <div className="section-container relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-[#f0e6d9] border border-[#dac5af] text-[#7a4817] shadow-sm mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#b87333]" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-amber-50 border border-amber-200 text-amber-800 shadow-xs mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             NVIDIA-ACCELERATED ARCHITECTURE
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-[#140f0c] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-[#09090b] mb-4">
             Full-Stack Acceleration.
             <br />
-            <span className="bg-gradient-to-r from-[#8f5626] via-[#b87333] to-[#c68642] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#09090b] via-[#451a03] to-[#b45309] bg-clip-text text-transparent">
               From Silicon to Cloud.
             </span>
           </h2>
-          <p className="text-[#55473a] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             Harnessing NVIDIA CUDA-X, TensorRT, and Isaac Sim to deliver hardware-accelerated 
             intelligence across enterprise clouds, edge gateways, and robotics fleets.
           </p>
@@ -191,14 +191,14 @@ export function NvidiaFeatures() {
                 key={pillar.id}
                 onClick={() => setActiveTab(i)}
                 className={cn(
-                  "px-5 py-3 rounded-xl font-mono text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 flex items-center gap-2.5 border",
+                  "px-5 py-3 rounded-xl font-mono text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 flex items-center gap-2.5 border cursor-pointer",
                   isActive
-                    ? "bg-[#140f0c] text-[#ffffff] border-[#140f0c] shadow-[0_6px_20px_rgba(20,15,12,0.18)]"
-                    : "bg-[#ffffff] text-[#635243] border-[#e2d5c4] hover:bg-[#f8f4ec] hover:border-[#b87333]/50 hover:text-[#140f0c]"
+                    ? "bg-[#09090b] text-white border-[#09090b] shadow-sm"
+                    : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:text-slate-900"
                 )}
               >
                 <TabIcon 
-                  className={cn("w-4 h-4", isActive ? "text-[#e2b17a]" : "text-[#8a7665]")} 
+                  className={cn("w-4 h-4", isActive ? "text-amber-400" : "text-slate-500")} 
                 />
                 {pillar.tabTitle}
               </button>
@@ -214,9 +214,9 @@ export function NvidiaFeatures() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-3xl bg-[#ffffff] border border-[#e2d5c4] shadow-[0_12px_40px_rgba(40,25,15,0.06)] overflow-hidden"
+            className="rounded-3xl bg-white border border-border shadow-[0_8px_32px_rgba(0,0,0,0.05)] overflow-hidden"
           >
-            <div className="grid lg:grid-cols-[1.1fr_1fr] divide-y lg:divide-y-0 lg:divide-x divide-[#ecdccb]">
+            <div className="grid lg:grid-cols-[1.1fr_1fr] divide-y lg:divide-y-0 lg:divide-x divide-border">
               {/* Left Column — Content & Features */}
               <div className="p-8 sm:p-10 flex flex-col justify-between">
                 <div>
@@ -226,21 +226,21 @@ export function NvidiaFeatures() {
                     {current.badge}
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#140f0c] mb-4 leading-snug">
+                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#09090b] mb-4 leading-snug">
                     {current.title}
                   </h3>
 
-                  <p className="text-[#55473a] text-base leading-relaxed mb-8">
+                  <p className="text-slate-600 text-base leading-relaxed mb-8">
                     {current.description}
                   </p>
 
                   <div className="space-y-3 mb-8">
-                    <h4 className="text-xs font-mono font-bold text-[#7a6a5c] uppercase tracking-wider">
+                    <h4 className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
                       ARCHITECTURAL CAPABILITIES
                     </h4>
                     {current.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-3 text-sm text-[#2c221a]">
-                        <CheckCircle2 className="w-4 h-4 text-[#10b981] flex-shrink-0 mt-0.5" />
+                      <div key={idx} className="flex items-start gap-3 text-sm text-slate-800">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -248,14 +248,14 @@ export function NvidiaFeatures() {
                 </div>
 
                 {/* Benchmark Metrics Bar */}
-                <div className="pt-6 border-t border-[#ecdccb]">
+                <div className="pt-6 border-t border-border">
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {current.stats.map((stat, idx) => (
-                      <div key={idx} className="bg-[#fbf9f5] border border-[#e8ded1] rounded-xl p-3">
-                        <div className="text-lg sm:text-xl font-bold font-display text-[#140f0c]">
+                      <div key={idx} className="bg-slate-50 border border-slate-200 rounded-xl p-3">
+                        <div className="text-lg sm:text-xl font-bold font-display text-[#09090b]">
                           {stat.value}
                         </div>
-                        <div className="text-[10px] font-mono text-[#7a6a5c] uppercase tracking-wider mt-0.5">
+                        <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mt-0.5">
                           {stat.label}
                         </div>
                       </div>
@@ -264,56 +264,56 @@ export function NvidiaFeatures() {
                 </div>
               </div>
 
-              {/* Right Column — Live Hardware/Software Spec Console (Dark Obsidian DGX Style) */}
-              <div className="bg-[#120d0a] p-8 sm:p-10 flex flex-col justify-between text-[#ffffff]">
+              {/* Right Column — Live Hardware/Software Spec Console (Modern DGX Console Style) */}
+              <div className="bg-[#0c0f17] p-8 sm:p-10 flex flex-col justify-between text-white">
                 <div>
                   {/* Console Header */}
-                  <div className="flex items-center justify-between pb-5 border-b border-[#2d221a] mb-6">
+                  <div className="flex items-center justify-between pb-5 border-b border-[#1e293b] mb-6">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#10b981] animate-pulse" />
-                      <span className="font-mono text-xs text-[#d6cfc7] tracking-wider uppercase">
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="font-mono text-xs text-slate-300 tracking-wider uppercase">
                         NVIDIA ACCELERATOR STATUS · ACTIVE
                       </span>
                     </div>
-                    <span className="font-mono text-xs text-[#d4a373]">
+                    <span className="font-mono text-xs text-amber-400">
                       CUDA 12.4
                     </span>
                   </div>
 
                   {/* Architecture Specs Table */}
                   <div className="space-y-4 mb-8">
-                    <div className="text-xs font-mono text-[#a89a8c] uppercase tracking-wider">
+                    <div className="text-xs font-mono text-slate-400 uppercase tracking-wider">
                       SPECIFICATION MATRIX
                     </div>
                     {current.specs.map((item, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-[#1c1612] border border-[#33261d]">
-                        <span className="text-xs font-mono text-[#a89a8c]">{item.key}</span>
-                        <span className="text-xs font-mono font-bold text-[#ffffff]">{item.val}</span>
+                      <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-[#151a26] border border-[#232c3f]">
+                        <span className="text-xs font-mono text-slate-400">{item.key}</span>
+                        <span className="text-xs font-mono font-bold text-white">{item.val}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Simulated Telemetry Stream */}
-                  <div className="p-4 rounded-xl bg-[#18120e] border border-[#33261d]">
+                  <div className="p-4 rounded-xl bg-[#151a26] border border-[#232c3f]">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[11px] font-mono text-[#a89a8c]">GPU STREAM LATENCY</span>
-                      <span className="text-[11px] font-mono text-[#10b981]">0.84ms (NOMINAL)</span>
+                      <span className="text-[11px] font-mono text-slate-400">GPU STREAM LATENCY</span>
+                      <span className="text-[11px] font-mono text-emerald-400">0.84ms (NOMINAL)</span>
                     </div>
-                    <div className="w-full bg-[#291f19] h-2 rounded-full overflow-hidden">
-                      <div className="bg-gradient-to-r from-[#10b981] to-[#d4a373] h-full w-[84%] rounded-full" />
+                    <div className="w-full bg-[#1e293b] h-2 rounded-full overflow-hidden">
+                      <div className="bg-gradient-to-r from-emerald-500 to-amber-500 h-full w-[84%] rounded-full" />
                     </div>
                   </div>
                 </div>
 
                 {/* Bottom Actions */}
-                <div className="pt-6 border-t border-[#2d221a] mt-6 flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#d6cfc7]">
-                    <Terminal className="w-4 h-4 text-[#d4a373]" />
+                <div className="pt-6 border-t border-[#1e293b] mt-6 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
+                    <Terminal className="w-4 h-4 text-amber-400" />
                     <span>NVIDIA DRIVER 555.42 · CERTIFIED</span>
                   </div>
                   <a
                     href="#operations"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#d4a373] hover:text-[#ffffff] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 hover:text-white transition-colors"
                   >
                     View Operations
                     <ArrowUpRight className="w-3.5 h-3.5" />
